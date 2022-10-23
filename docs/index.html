@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Noções básicas de computação quântica</title>
+  <meta name="description" content="Uma série de aulas introdutórias sobre computação quântica." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Noções básicas de computação quântica" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Uma série de aulas introdutórias sobre computação quântica." />
+  <meta name="github-repo" content="abbarreto/book-MQ" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Noções básicas de computação quântica" />
+  
+  <meta name="twitter:description" content="Uma série de aulas introdutórias sobre computação quântica." />
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="01-PreliminaresMatematicas.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="web/style.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" type="text/css" />
+<link rel="stylesheet" href="web/lite-yt-embed.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><h4>Tabela de conteúdos</h4></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos-e-público-alvo"><i class="fa fa-check"></i>Objetivos e público-alvo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#usando-este-e-book"><i class="fa fa-check"></i>Usando este e-book</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="part"><span><b>I Tópicos Introdutórios</b></span></li>
+<li class="chapter" data-level="1" data-path="01-PreliminaresMatematicas.html"><a href="01-PreliminaresMatematicas.html"><i class="fa fa-check"></i><b>1</b> Preliminares matemáticas</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="01-PreliminaresMatematicas.html"><a href="01-PreliminaresMatematicas.html#complex-numbers"><i class="fa fa-check"></i><b>1.1</b> Complex numbers</a></li>
+<li class="chapter" data-level="1.2" data-path="01-PreliminaresMatematicas.html"><a href="01-PreliminaresMatematicas.html#euclidean-vectors-and-vector-spaces"><i class="fa fa-check"></i><b>1.2</b> Euclidean vectors and vector spaces</a></li>
+<li class="chapter" data-level="1.3" data-path="01-PreliminaresMatematicas.html"><a href="01-PreliminaresMatematicas.html#bras-and-kets"><i class="fa fa-check"></i><b>1.3</b> Bras and kets</a></li>
+<li class="chapter" data-level="1.4" data-path="01-PreliminaresMatematicas.html"><a href="01-PreliminaresMatematicas.html#daggers"><i class="fa fa-check"></i><b>1.4</b> Daggers</a></li>
+<li class="chapter" data-level="1.5" data-path="01-PreliminaresMatematicas.html"><a href="01-PreliminaresMatematicas.html#geometry"><i class="fa fa-check"></i><b>1.5</b> Geometry</a></li>
+<li class="chapter" data-level="1.6" data-path="01-PreliminaresMatematicas.html"><a href="01-PreliminaresMatematicas.html#operators"><i class="fa fa-check"></i><b>1.6</b> Operators</a></li>
+<li class="chapter" data-level="1.7" data-path="01-PreliminaresMatematicas.html"><a href="01-PreliminaresMatematicas.html#eigenvalues-and-eigenvectors"><i class="fa fa-check"></i><b>1.7</b> Eigenvalues and eigenvectors</a></li>
+<li class="chapter" data-level="1.8" data-path="01-PreliminaresMatematicas.html"><a href="01-PreliminaresMatematicas.html#outer-products"><i class="fa fa-check"></i><b>1.8</b> Outer products</a></li>
+<li class="chapter" data-level="1.9" data-path="01-PreliminaresMatematicas.html"><a href="01-PreliminaresMatematicas.html#the-trace"><i class="fa fa-check"></i><b>1.9</b> The trace</a></li>
+<li class="chapter" data-level="1.10" data-path="01-PreliminaresMatematicas.html"><a href="01-PreliminaresMatematicas.html#some-useful-identities"><i class="fa fa-check"></i><b>1.10</b> Some useful identities</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="02-cross-refs.html"><a href="02-cross-refs.html"><i class="fa fa-check"></i><b>2</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="02-cross-refs.html"><a href="02-cross-refs.html#chapters-and-sub-chapters"><i class="fa fa-check"></i><b>2.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="2.2" data-path="02-cross-refs.html"><a href="02-cross-refs.html#captioned-figures-and-tables"><i class="fa fa-check"></i><b>2.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="02-DinamicaParticulas.html"><a href="02-DinamicaParticulas.html"><i class="fa fa-check"></i><b>3</b> Dinâmica de partículas</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="02-DinamicaParticulas.html"><a href="02-DinamicaParticulas.html#a-section"><i class="fa fa-check"></i><b>3.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="02-DinamicaParticulas.html"><a href="02-DinamicaParticulas.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="03-parts.html"><a href="03-parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
+<li class="chapter" data-level="5" data-path="03-TeoriaOndulatoria.html"><a href="03-TeoriaOndulatoria.html"><i class="fa fa-check"></i><b>5</b> Teoria ondulatória</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="03-TeoriaOndulatoria.html"><a href="03-TeoriaOndulatoria.html#a-section-1"><i class="fa fa-check"></i><b>5.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="03-TeoriaOndulatoria.html"><a href="03-TeoriaOndulatoria.html#an-unnumbered-section-1"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="04-citations.html"><a href="04-citations.html"><i class="fa fa-check"></i><b>6</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="04-citations.html"><a href="04-citations.html#footnotes"><i class="fa fa-check"></i><b>6.1</b> Footnotes</a></li>
+<li class="chapter" data-level="6.2" data-path="04-citations.html"><a href="04-citations.html#citations"><i class="fa fa-check"></i><b>6.2</b> Citations</a></li>
+</ul></li>
+<li class="part"><span><b>II Tópicos de mecânica quântica</b></span></li>
+<li class="chapter" data-level="7" data-path="04-FundamentosMQ.html"><a href="04-FundamentosMQ.html"><i class="fa fa-check"></i><b>7</b> Fundamentos da mecânica quântica</a></li>
+<li class="chapter" data-level="8" data-path="05-blocks.html"><a href="05-blocks.html"><i class="fa fa-check"></i><b>8</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="05-blocks.html"><a href="05-blocks.html#equations"><i class="fa fa-check"></i><b>8.1</b> Equations</a></li>
+<li class="chapter" data-level="8.2" data-path="05-blocks.html"><a href="05-blocks.html#theorems-and-proofs"><i class="fa fa-check"></i><b>8.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="8.3" data-path="05-blocks.html"><a href="05-blocks.html#callout-blocks"><i class="fa fa-check"></i><b>8.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="06-share.html"><a href="06-share.html"><i class="fa fa-check"></i><b>9</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="06-share.html"><a href="06-share.html#publishing"><i class="fa fa-check"></i><b>9.1</b> Publishing</a></li>
+<li class="chapter" data-level="9.2" data-path="06-share.html"><a href="06-share.html#pages"><i class="fa fa-check"></i><b>9.2</b> 404 pages</a></li>
+<li class="chapter" data-level="9.3" data-path="06-share.html"><a href="06-share.html#metadata-for-sharing"><i class="fa fa-check"></i><b>9.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="07-references.html"><a href="07-references.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><h5><a href="https://github.com/abbarreto/book-MQ" target="blank">Github do curso</a></h5></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Noções básicas de computação quântica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Noções básicas de computação quântica</h1>
+<p class="author multi-author"><em><a href="http://lattes.cnpq.br/3242250540541623">Adriano B. Barreto</a><a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a></em></p>
+<address class="author_afil">
+Instituto Federal do Rio Grande do Sul — Campus Caxias do Sul<br>
+</address>
+<p class="date"><em>Última atualização: 23 de outubro de 2022 <a href="https://github.com/abbarreto/book-MQ">(histórico de mudanças)</a></em></p>
+</div>
+<div id="prefácio" class="section level1 unnumbered hasAnchor">
+<h1>Prefácio<a href="index.html#prefácio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>For the past however-many years, <a href="http://lattes.cnpq.br/3242250540541623">Adriano Braga Barreto</a> has been teaching the masters course “Introduction to Quantum Information” at the University of Oxford.
+During this time, many versions of accompanying lecture notes have come and gone, with constant improvements and changes being made.
+The version that you will find on this website was originally edited by <a href="https://thosgood.com">Tim Hosgood</a> into a cohesive “book”, and both authors have since then added extra comments, exercises, and examples.</p>
+<blockquote>
+<p><em>Este livro é um trabalho em constante progesso. Assim, faltam algumas seções, mas estou constantemente atualizando com correções e preenchendo algumas lacunas.</em> <em>Por causa disto, peço encarecidamente que me informem quando identificarem erros de qualquer espécie (tipo, contas, link quebrado, etc) através do contato de e-mail disponível na nota de rodapé.</em></p>
+</blockquote>
+<div id="objetivos-e-público-alvo" class="section level2 unnumbered hasAnchor">
+<h2>Objetivos e público-alvo<a href="index.html#objetivos-e-público-alvo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>In this series of lectures you will learn how inherently quantum phenomena, such as quantum interference and quantum entanglement, can make information processing more efficient and more secure, even in the presence of noise.</p>
+<p>There are many introductions to quantum information science, so it seems like a good idea to start with an explanation of why this particular one exists.
+When learning such a subject, located somewhere in between mathematics, physics, and computer science, there are many possible approaches, with one main factor being “how far along the informal–formal scale do I want to be?”.
+In these notes we take the following philosophy: it can be both interesting and fun to cover lots of ground quickly and see as much as possible on a surface level, but it’s also good to know that there is a lot of important stuff that you’ll miss by doing this.
+In practice, this means that we don’t worry to much about high-level mathematics.
+That is not to say that we do not use mathematics “properly” — you’ll find a perfectly formal treatment of e.g. quantum channels via completely positive trace-preserving maps in the language of linear algebra — but rather than putting too many footnotes with technical caveats and explanations throughout the main text, we opt to collect them all together into one big “warning” here:</p>
+<blockquote>
+<p><em>The mathematics underlying quantum theory is a vast and in-depth subject, most of which we will never touch upon, some of which we will only allude to, and the rest of which we will cover only in the level of detail necessary to our overarching goal</em>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
+“What”, then, “is the overarching goal?” one might ask.
+Our answer is this:</p>
+</blockquote>
+<blockquote>
+<p><em>To help an eager reader understand what quantum information science is all about, and for them to realise which facets of it they would like to study in more detail</em>.
+But this does not mean that our treatment is cursory!
+In fact, by the end of this book you will have learnt a fair bit more than what might usually be covered in a standard quantum information science course that you would find in a mathematics masters degree, for example.</p>
+</blockquote>
+<p>The interdisciplinary nature of this topic, combined with the diverse backgrounds that different readers have, means that some may find certain chapters easy, while others find the same ones difficult — so if things seem hard to you, then don’t worry: the next chapter might feel much easier!
+The only real prerequisites are a working knowledge of complex numbers and vectors and matrices; some previous exposure to elementary probability theory and Dirac bra-ket notation (for example) would be helpful, but we provide crash-course introductions to some topics like these at the end of this chapter.
+A basic knowledge of quantum mechanics (especially in the simple context of finite dimensional state spaces, e.g. state vectors, composite systems, unitary matrices, Born rule for quantum measurements) and some ideas from classical theoretical computer science (complexity theory, algorithms) would be helpful, but is <em>not at all</em> essential.</p>
+<p>Of course, even if you aren’t familiar with the formal mathematics, then that shouldn’t stop you from reading this book if you want to.
+You might be surprised at how much you can <a href="https://en.wikipedia.org/wiki/Black_box">black box</a> the bits that you don’t understand!
+The caveat stands, however, that, to <em>really</em> get to grips with this subject, at least some knowledge of maths is necessary — but this is not a bad thing!</p>
+<p>Finally, throughout this text you will find some technical asides (marked with the <i class="fa fa-search-plus"></i> icon).
+These are <em>not at all</em> necessary reading, but are just there to provide the exceptionally eager reader (or perhaps those with a more formal mathematical background) with some extra context, as well as some pointers towards further reading.</p>
+</div>
+<div id="usando-este-e-book" class="section level2 unnumbered hasAnchor">
+<h2>Usando este e-book<a href="index.html#usando-este-e-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<!-- TO-DO: print a warning if javascript is disabled in their browser, saying precisely what it is used for -->
+<p>This book has some functionality unique to the online (as opposed to the PDF) version, accessed using the toolbar along the top of the window.
+From left to right, the icons have the following use:</p>
+<ul>
+<li><i class="fa fa-align-justify"></i> — Hide/show the table of contents</li>
+<li><i class="fa fa-search"></i> — Search within the text of the book</li>
+<li><i class="fa fa-font"></i> — Change font size, font face, and toggle dark mode</li>
+<li><i class="fa fa-code"></i> — View the source file of the current chapter on GitHub<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
+<li><i class="fa fa-file-pdf-o"></i> — Open the PDF version of the book in a new tab</li>
+</ul>
+<p>The online version also has <a href="https://www.youtube.com/playlist?list=PLkespgaZN4gmu0nWNmfMflVRqw0VPkCGH">the accompanying lecture videos</a> embedded from YouTube.
+These videos are hidden by default, but can be shown by clicking on the title next to the <i class="fa fa-video-camera"></i> icon, wherever one appears.
+The order of the videos generally differs from that of the written notes, so we have made our best efforts to include them in an order which makes sense relative to the chapters here.
+For those wishing to really get familiar with this subject, we recommend separately watching the lecture videos following the order in <a href="https://www.youtube.com/playlist?list=PLkespgaZN4gmu0nWNmfMflVRqw0VPkCGH">the linked playlist</a>.</p>
+<p>You will also see the <i class="fa fa-search-plus"></i> icon in certain places.
+Clicking on these will display one of the technical asides mentioned in the introduction.</p>
+<p>If a hyperlink has the <a class="external-link"></a> icon after it, then it points to a webpage <em>outside</em> this book; otherwise it is an <em>internal</em> link to another section within this book.</p>
+<p>There are also some keyboard shortcuts:</p>
+<ul>
+<li>jump between sections with <code>←</code> and <code>→</code></li>
+<li>toggle the table of contents with <code>s</code></li>
+<li>open the search bar with <code>f</code>, step through results with <code>Enter</code>, and stop searching with <code>Esc</code></li>
+</ul>
+</div>
+<div id="agradecimentos" class="section level2 unnumbered hasAnchor">
+<h2>Agradecimentos<a href="index.html#agradecimentos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We thank the following for their helpful comments and corrections: Zhenyu Cai, Jedrzej Burkat, Maryam Khaqan.
+We also appreciate the work of Yihui Xie in developing the <a href="https://bookdown.org/yihui/bookdown/">Bookdown package</a> with which this e-book was built.</p>
+
+</div>
+</div>
+
+
+
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>e-mail: <a href="mailto:adriano.barreto@caxias.ifrs.edu.br" class="email">adriano.barreto@caxias.ifrs.edu.br</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>However, since mathematicians were involved in the writing of this book, we have not been able to resist <em>some</em> digressions here and there.<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>The GitHub-savvy of you can use this to create issues pointing out typos, mistakes, etc.<a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
+</ol>
+</div>
+<!-- KaTeX for maths rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./web/MathJax2KaTeX.js"></script>
+<!-- footnotes in the margin -->
+<script type="text/javascript" src="./web/sidenotes.js"></script>
+<!-- embedded YouTube videos -->
+<script type="text/javascript" src="./web/lite-yt-embed.js"></script>
+
+<script type="text/javascript">
+  $document.ready(function() {
+    // 1. Header bar customisations
+
+    // "Font Settings" customisation
+    // N.B. This is now done in the `build_book` script
+    //      by replacing plugin-fontsettings.js with a custom version
+    // $('div.font-settings button.size-3').map(function() {
+    //   // removing the Sepia colour option (thus going from 3-col to 2-col)
+    //   this.setAttribute("class", "button size-2");
+    //   if (this.innerText == "Sepia") {
+    //     this.setAttribute("style", "display: none;");
+    //   }
+    //   // nicer colour scheme names
+    //   if (this.innerText == "White") {
+    //     this.innerText = "Light";
+    //   }
+    //   if (this.innerText == "Night") {
+    //     this.innerText = "Dark";
+    //   }
+    // });
+
+    // Vertical divider between "internal" and "external" buttons
+    // N.B. This is now done in the `build_book` script
+    //      by replacing plugin-fontsettings.js with a custom version
+    // $('div.font-settings').after('<span class="header-divider-slash">/</span>');
+
+    // Change the "View Source" icon from an eye to "</>"
+    // N.B. this is now done in the `build_book` script
+    //      by replacing plugin-bookdown.js with a custom version
+    // $('a[title="View Source"]').children()[0].setAttribute("class", "fa fa-code");
+
+
+    // 2. Videos
+
+    // TO-DO: make it so that the icon is also clickable
+    //        (and then make sure the CSS has cursor: pointer)
+
+    // Create an icon and a toggle link
+    $("div.video").each(function() {
+      jQuery("<i>", {
+          class: "fa fa-video-camera"
+      }).appendTo(this);
+      var title = $(this).attr("title");
+      jQuery("<a>", {
+          class: "video-toggle",
+          text: title
+      }).appendTo(this);
+    });
+
+    // Toggle showing the video
+    // TO-DO: make video toggle work how .technical divs work:
+    //        1. `display: none;` in gitbook-custom.css for lite-youtube
+    //        2. insertAfter the lite-youtube
+    //        3. have video-toggle just do a slideToggle()
+    //        4. (works if you click the icon too)
+    $(".video-toggle").click(function() {
+      var parent = $(this).parent();
+      var video_id = parent.data("videoid");
+      var possible_video = $(this).siblings("lite-youtube");
+      if (possible_video.length) {
+        possible_video[0].remove();
+      } else {
+        jQuery("<lite-youtube>", {
+            videoid: video_id
+        }).insertAfter($(this));
+      }
+    });
+
+
+    // 3. Technical divs
+
+    $("div.technical").each(function() {
+      // Add an hr and wrap the contents in another div
+      jQuery("<hr>").prependTo(this);
+      $(this).wrapInner('<div class="technical-contents"></div>');
+      // Create an icon and toggle link
+      var title = $(this).attr("title");
+      jQuery("<a>", {
+          class: "technical-toggle",
+          text: title
+      }).prependTo(this);
+      jQuery("<i>", {
+          class: "fa fa-search-plus"
+      }).prependTo(this);
+    });
+
+    // Toggle showing the technical contents, either by clicking the title
+    // or clicking the icon
+    $(".technical-toggle, .technical > .fa").click(function() {
+      $(this).siblings(".technical-contents").slideToggle("fast", function() {
+        // Animation complete.
+      });
+    });
+
+
+    // 4. To-do divs
+
+    $("div.todo").each(function() {
+      // Create an icon
+      jQuery("<i>", {
+          class: "fa fa-cogs"
+      }).prependTo(this);
+    });
+
+
+    // 5. Other stuff
+
+    // Class and new-tab-opening for external links
+    $("a[href^='http']").each(function() {
+      this.setAttribute("class", "external-link");
+      this.setAttribute("target", "_blank");
+    });
+  });
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="01-PreliminaresMatematicas.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": true,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book-MQ.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"info": false
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

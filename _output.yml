@@ -1,0 +1,33 @@
+bookdown::gitbook:
+  mathjax: ["web/MathJax2KaTeX.js"]
+  pandoc_args: ["--gladtex"]
+  css: ["./web/style.css", "https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css", "./web/lite-yt-embed.css"]
+  includes:
+      after_body: ["./web/scripts.html"]
+  split_by: rmd
+  config:
+    toc:
+      before: |
+        <li><h4>Tabela de conteúdos</h4></li>
+      collapse: section
+      after: |
+        <li><h5><a href="https://github.com/abbarreto/book-MQ" target="blank">Github do curso</a></h5></li>
+    download: ["pdf"]
+    fontsettings:
+      theme: white
+      family: sans
+      size: 1
+    sharing:
+      facebook: yes
+      github: no
+      twitter: yes
+      linkedin: yes
+      weibo: no
+      instapaper: yes
+      vk: no
+      all: []
+    info: no
+bookdown::pdf_book:
+  template: latex-template-a4.tex
+  latex_engine: xelatex
+  keep_tex: yes

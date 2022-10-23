@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:ital,wght@0,400;0,700;1,400&display=swap');
+
+.page-inner {
+  max-width: 700px !important;
+}
+
+.katex-html {
+  white-space: nowrap;
+}
+
+.book.font-family-0 {
+  font-family: 'Merriweather', Georgia, serif;
+}
+
+.book.font-family-1 {
+  font-family: 'Merriweather Sans', Helvetica, Arial, sans-serif;
+}
+
+.page-wrapper p {
+  text-align: justify;
+}
+
+.caption {
+  color: #777;
+  margin-top: 10px;
+}
+p code {
+  white-space: inherit;
+}
+pre {
+  word-break: normal;
+  word-wrap: normal;
+}
+pre code {
+  white-space: inherit;
+}
+
+/*.katex {
+  font-size: 1.8rem !important;
+}*/
+
+
+
+/* Making things look nicer */
+
+/* TOC */
+
+.book .book-summary {
+  /*font-family: NunitoSans, -apple-system, Avenir, Helvetica, Arial, sans-serif;*/
+  background: #fff;
+  border-right: 1px solid #5b84b1;
+}
+
+.book .book-summary nav ul.summary h4 {
+  font-size: 1.5rem;
+  padding-left: 1em;
+}
+
+.book .book-summary nav ul.summary li.part {
+  font-style: italic;
+}
+
+.book .book-summary nav ul.summary li a {
+  white-space: normal !important;
+}
+
+
+
+/* Header */
+
+.book-header {
+  border-bottom: none !important;
+}
+
+.book-header h1 {
+  display: none;
+}
+
+.book-header .header-divider-slash {
+  font-size: 2em !important;
+  color: #eee !important;
+  cursor: default !important;
+}
+.book-header .header-divider-slash.hover {
+  color: #eee !important;
+}
+
+
+
+/* Book */
+
+.book h1,h2,h3 {
+  color: #5b84b1;
+  border-bottom: 1px solid #5b84b1;
+}
+
+.book h1 {
+  font-size: 1.9em !important;
+}
+
+.header-section-number:after {
+  content: '.';
+}
+
+.caption {
+  text-align: center !important;
+}
+
+
+
+/* Figures */
+
+div.figure {
+  margin: 2em 0;
+  padding: 1em;
+  border-left: 3px solid #5b84b1;
+  border-right: 3px solid #5b84b1;
+}
+
+div.figure p.caption{
+  margin: 0;
+}
+
+
+
+/* Sidenotes */
+
+
+section {
+  overflow: visible !important;
+}
+
+.page-subject {
+  position: relative;
+}
+
+.page-sidenote {
+  display: none;
+}
+
+.has-sidenotes {
+  margin: 0 10% !important;
+}
+
+.has-sidenotes .page-sidenote {
+  box-sizing: border-box;
+  display: block;
+  left: 100%;
+  padding-left: 20px;
+  position: absolute;
+  top: 0;
+  width: 240px;
+  font-size: 0.9em;
+  line-height: normal;
+  color: #888;
+}
+
+.has-sidenotes .page-sidenote .katex {
+  font-size: 1em !important;
+}
+
+.has-sidenotes .idea .page-sidenote {
+  margin-left: 40px;
+}
+
+.has-sidenotes .scenario .page-sidenote {
+  margin-left: 40px;
+}
+
+.has-sidenotes .circuit .page-sidenote {
+  margin-left: 40px;
+}
+
+.has-sidenotes .footnotes {
+  display: none;
+}
+
+.has-sidenotes .footnote-ref {
+  display: none;
+}
+
+.page-sidenote .footnote-back {
+  display: none !important;
+}
+
+
+
+/* Links */
+
+a.external-link::after {
+  content: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12px' height='12px' viewBox='0 0 24 24' style='cursor:pointer'%3E%3Cg stroke-width='2.1' stroke='%23666' fill='none' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='17 13.5 17 19.5 5 19.5 5 7.5 11 7.5'%3E%3C/polyline%3E%3Cpath d='M14,4.5 L20,4.5 L20,10.5 M20,4.5 L11,13.5'%3E%3C/path%3E%3C/g%3E%3C/svg%3E");
+}
+
+
+
+/* Videos */
+
+div.video {
+  margin: 1em;
+  padding: 1em;
+  border: 2px dashed #ccc;
+}
+
+/*div.video i.fa {
+  cursor: pointer;
+}*/
+
+div.video a.video-toggle {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+div.video lite-youtube {
+  margin-top: 1em;
+}
+
+
+
+/* To-do sections */
+
+div.todo {
+  padding: 1em;
+  color: #b1624e;
+  text-align: center;
+  font-weight: bold;
+  font-style: italic;
+}
+
+div.todo::after {
+  padding: 0.5em;
+  content: "This section is not yet finished";
+}
+
+
+
+/* Technical sections */
+
+div.technical {
+  padding: 1em;
+  margin: 2em 1em;
+  border: 5px solid #b1624e;
+  border-radius: 10px;
+}
+
+div.technical div.technical-contents {
+  display: none; /* hide technical div content on load... */
+}
+
+div.technical i.fa {
+  cursor: pointer;
+}
+
+div.technical a.technical-toggle {
+  margin-left: 10px;
+  margin-bottom: 1em;
+  cursor: pointer;
+}
+
+div.technical hr {
+  margin: 1em 0px !important;
+  height: 2px !important;
+}
+
+div.technical div.technical-contents > :first-child {
+  margin-top: 0 !important;
+}
+
+div.technical div.technical-contents > :last-child,
+div.technical div.technical-contents > :last-child p {
+  margin-bottom: 0 !important;
+}
+
+div.technical div.technical-contents table {
+  width: auto !important;
+  margin: 0 auto;
+}
+
+
+
+/* Static custom environments */
+
+div.idea {
+  padding: 1em;
+  margin: 2em 1em;
+  border: 5px solid #5b84b1;
+  border-radius: 10px;
+}
+
+div.idea > :first-child {
+  margin-top: 0 !important;
+}
+
+div.idea > :last-child,
+div.idea > :last-child p {
+  margin-bottom: 0 !important;
+}
+
+div.idea table {
+  width: auto !important;
+  margin: 0 auto;
+}
+
+
+div.circuit {
+  padding: 1em;
+  margin: 2em 1em;
+  border: 5px solid #aaa;
+  border-radius: 10px;
+}
+
+div.circuit::before {
+  content: "Circuit.";
+  font-weight: bold;
+}
+
+div.circuit .circuit-title {
+  display: inline;
+}
+
+div.circuit .circuit-title p {
+  display: inline;
+}
+
+div.circuit > :first-child {
+  margin-top: 0 !important;
+}
+
+div.circuit > :last-child {
+  margin-bottom: 0 !important;
+}
+
+
+div.scenario {
+  padding: 1em;
+  margin: 2em 1em;
+  border: 5px solid #aaa;
+  border-radius: 10px;
+}
+
+div.scenario::before {
+  content: "Scenario.";
+  font-weight: bold;
+}
+
+div.scenario > :first-child {
+  margin-top: 0 !important;
+}
+
+div.scenario > :last-child {
+  margin-bottom: 0 !important;
+}
+
+div.scenario table {
+  width: auto !important;
+  margin: 1em auto !important;
+}

@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3.1 A section | Noções básicas de computação quântica</title>
+  <meta name="description" content="Uma série de aulas introdutórias em computação quântica." />
+  <meta name="generator" content="bookdown 0.29 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3.1 A section | Noções básicas de computação quântica" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:description" content="Uma série de aulas introdutórias em computação quântica." />
+  <meta name="github-repo" content="abbarreto/book-MQ" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3.1 A section | Noções básicas de computação quântica" />
+  
+  <meta name="twitter:description" content="Uma série de aulas introdutórias em computação quântica." />
+  
+
+<meta name="author" content="Adriano B. Barreto" />
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="3-dinamica-particulas.html"/>
+<link rel="next" href="4-parts.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+/* Used with Pandoc 2.11+ new --citeproc when CSL is used */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+}
+.hanging div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}
+</style>
+
+<link rel="stylesheet" href="web/style.css" type="text/css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" type="text/css" />
+<link rel="stylesheet" href="web/lite-yt-embed.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><h4>Tabela de conteúdos</h4></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
+<ul>
+<li class="chapter" data-level="" data-path="objetivos-e-público-alvo.html"><a href="objetivos-e-público-alvo.html"><i class="fa fa-check"></i>Objetivos e público-alvo</a></li>
+<li class="chapter" data-level="" data-path="usando-este-e-book.html"><a href="usando-este-e-book.html"><i class="fa fa-check"></i>Usando este e-book</a></li>
+<li class="chapter" data-level="" data-path="agradecimentos.html"><a href="agradecimentos.html"><i class="fa fa-check"></i>Agradecimentos</a></li>
+</ul></li>
+<li class="part"><span><b>I Tópicos Introdutórios</b></span></li>
+<li class="chapter" data-level="1" data-path="1-preliminares-matematicas.html"><a href="1-preliminares-matematicas.html"><i class="fa fa-check"></i><b>1</b> Preliminares matemáticas</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="1.1-a-section.html"><a href="1.1-a-section.html"><i class="fa fa-check"></i><b>1.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="1.1-a-section.html"><a href="1.1-a-section.html#an-unnumbered-section"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="2-cross.html"><a href="2-cross.html"><i class="fa fa-check"></i><b>2</b> Cross-references</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="2.1-chapters-and-sub-chapters.html"><a href="2.1-chapters-and-sub-chapters.html"><i class="fa fa-check"></i><b>2.1</b> Chapters and sub-chapters</a></li>
+<li class="chapter" data-level="2.2" data-path="2.2-captioned-figures-and-tables.html"><a href="2.2-captioned-figures-and-tables.html"><i class="fa fa-check"></i><b>2.2</b> Captioned figures and tables</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="3-dinamica-particulas.html"><a href="3-dinamica-particulas.html"><i class="fa fa-check"></i><b>3</b> Dinâmica de partículas</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="3.1-a-section-1.html"><a href="3.1-a-section-1.html"><i class="fa fa-check"></i><b>3.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="3.1-a-section-1.html"><a href="3.1-a-section-1.html#an-unnumbered-section-1"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="4-parts.html"><a href="4-parts.html"><i class="fa fa-check"></i><b>4</b> Parts</a></li>
+<li class="chapter" data-level="5" data-path="5-teoria-ondulatoria.html"><a href="5-teoria-ondulatoria.html"><i class="fa fa-check"></i><b>5</b> Teoria ondulatória</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="5.1-a-section-2.html"><a href="5.1-a-section-2.html"><i class="fa fa-check"></i><b>5.1</b> A section</a>
+<ul>
+<li class="chapter" data-level="" data-path="5.1-a-section-2.html"><a href="5.1-a-section-2.html#an-unnumbered-section-2"><i class="fa fa-check"></i>An unnumbered section</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="6-footnotes-and-citations.html"><a href="6-footnotes-and-citations.html"><i class="fa fa-check"></i><b>6</b> Footnotes and citations</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="6.1-footnotes.html"><a href="6.1-footnotes.html"><i class="fa fa-check"></i><b>6.1</b> Footnotes</a></li>
+<li class="chapter" data-level="6.2" data-path="6.2-citations.html"><a href="6.2-citations.html"><i class="fa fa-check"></i><b>6.2</b> Citations</a></li>
+</ul></li>
+<li class="part"><span><b>II Tópicos de mecânica quântica</b></span></li>
+<li class="chapter" data-level="7" data-path="7-fundamentos-mq.html"><a href="7-fundamentos-mq.html"><i class="fa fa-check"></i><b>7</b> Fundamentos da mecânica quântica</a></li>
+<li class="chapter" data-level="8" data-path="8-blocks.html"><a href="8-blocks.html"><i class="fa fa-check"></i><b>8</b> Blocks</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="8.1-equations.html"><a href="8.1-equations.html"><i class="fa fa-check"></i><b>8.1</b> Equations</a></li>
+<li class="chapter" data-level="8.2" data-path="8.2-theorems-and-proofs.html"><a href="8.2-theorems-and-proofs.html"><i class="fa fa-check"></i><b>8.2</b> Theorems and proofs</a></li>
+<li class="chapter" data-level="8.3" data-path="8.3-callout-blocks.html"><a href="8.3-callout-blocks.html"><i class="fa fa-check"></i><b>8.3</b> Callout blocks</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="9-sharing-your-book.html"><a href="9-sharing-your-book.html"><i class="fa fa-check"></i><b>9</b> Sharing your book</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="9.1-publishing.html"><a href="9.1-publishing.html"><i class="fa fa-check"></i><b>9.1</b> Publishing</a></li>
+<li class="chapter" data-level="9.2" data-path="9.2-pages.html"><a href="9.2-pages.html"><i class="fa fa-check"></i><b>9.2</b> 404 pages</a></li>
+<li class="chapter" data-level="9.3" data-path="9.3-metadata-for-sharing.html"><a href="9.3-metadata-for-sharing.html"><i class="fa fa-check"></i><b>9.3</b> Metadata for sharing</a></li>
+</ul></li>
+<li class="chapter" data-level="" data-path="referências.html"><a href="referências.html"><i class="fa fa-check"></i>Referências</a></li>
+<li class="divider"></li>
+<li><h5><a href="https://github.com/abbarreto/book-MQ" target="blank">Github do curso</a></h5></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Noções básicas de computação quântica</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="a-section-1" class="section level2 hasAnchor" number="3.1">
+<h2><span class="header-section-number">3.1</span> A section<a href="3.1-a-section-1.html#a-section-1" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>All chapter sections start with a second-level (<code>##</code>) or higher heading followed by your section title, like the sections above and below here. You can have as many as you want within a chapter.</p>
+<div id="an-unnumbered-section-1" class="section level3 unnumbered hasAnchor">
+<h3>An unnumbered section<a href="3.1-a-section-1.html#an-unnumbered-section-1" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Chapters and sections are numbered by default. To un-number a heading, add a <code>{.unnumbered}</code> or the shorter <code>{-}</code> at the end of the heading, like in this section.</p>
+
+</div>
+</div>
+<!-- </div> -->
+<!-- KaTeX for maths rendering -->
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.js" integrity="sha384-z1fJDqw8ZApjGO3/unPWUPsIymfsJmyrDVWC8Tv/a1HeOtGmkwNd/7xUS0Xcnvsx" crossorigin="anonymous"></script>
+<script type="text/javascript" src="./web/MathJax2KaTeX.js"></script>
+<!-- footnotes in the margin -->
+<script type="text/javascript" src="./web/sidenotes.js"></script>
+<!-- embedded YouTube videos -->
+<script type="text/javascript" src="./web/lite-yt-embed.js"></script>
+
+<script type="text/javascript">
+  $document.ready(function() {
+    // 1. Header bar customisations
+
+    // "Font Settings" customisation
+    // N.B. This is now done in the `build_book` script
+    //      by replacing plugin-fontsettings.js with a custom version
+    // $('div.font-settings button.size-3').map(function() {
+    //   // removing the Sepia colour option (thus going from 3-col to 2-col)
+    //   this.setAttribute("class", "button size-2");
+    //   if (this.innerText == "Sepia") {
+    //     this.setAttribute("style", "display: none;");
+    //   }
+    //   // nicer colour scheme names
+    //   if (this.innerText == "White") {
+    //     this.innerText = "Light";
+    //   }
+    //   if (this.innerText == "Night") {
+    //     this.innerText = "Dark";
+    //   }
+    // });
+
+    // Vertical divider between "internal" and "external" buttons
+    // N.B. This is now done in the `build_book` script
+    //      by replacing plugin-fontsettings.js with a custom version
+    // $('div.font-settings').after('<span class="header-divider-slash">/</span>');
+
+    // Change the "View Source" icon from an eye to "</>"
+    // N.B. this is now done in the `build_book` script
+    //      by replacing plugin-bookdown.js with a custom version
+    // $('a[title="View Source"]').children()[0].setAttribute("class", "fa fa-code");
+
+
+    // 2. Videos
+
+    // TO-DO: make it so that the icon is also clickable
+    //        (and then make sure the CSS has cursor: pointer)
+
+    // Create an icon and a toggle link
+    $("div.video").each(function() {
+      jQuery("<i>", {
+          class: "fa fa-video-camera"
+      }).appendTo(this);
+      var title = $(this).attr("title");
+      jQuery("<a>", {
+          class: "video-toggle",
+          text: title
+      }).appendTo(this);
+    });
+
+    // Toggle showing the video
+    // TO-DO: make video toggle work how .technical divs work:
+    //        1. `display: none;` in gitbook-custom.css for lite-youtube
+    //        2. insertAfter the lite-youtube
+    //        3. have video-toggle just do a slideToggle()
+    //        4. (works if you click the icon too)
+    $(".video-toggle").click(function() {
+      var parent = $(this).parent();
+      var video_id = parent.data("videoid");
+      var possible_video = $(this).siblings("lite-youtube");
+      if (possible_video.length) {
+        possible_video[0].remove();
+      } else {
+        jQuery("<lite-youtube>", {
+            videoid: video_id
+        }).insertAfter($(this));
+      }
+    });
+
+
+    // 3. Technical divs
+
+    $("div.technical").each(function() {
+      // Add an hr and wrap the contents in another div
+      jQuery("<hr>").prependTo(this);
+      $(this).wrapInner('<div class="technical-contents"></div>');
+      // Create an icon and toggle link
+      var title = $(this).attr("title");
+      jQuery("<a>", {
+          class: "technical-toggle",
+          text: title
+      }).prependTo(this);
+      jQuery("<i>", {
+          class: "fa fa-search-plus"
+      }).prependTo(this);
+    });
+
+    // Toggle showing the technical contents, either by clicking the title
+    // or clicking the icon
+    $(".technical-toggle, .technical > .fa").click(function() {
+      $(this).siblings(".technical-contents").slideToggle("fast", function() {
+        // Animation complete.
+      });
+    });
+
+
+    // 4. To-do divs
+
+    $("div.todo").each(function() {
+      // Create an icon
+      jQuery("<i>", {
+          class: "fa fa-cogs"
+      }).prependTo(this);
+    });
+
+
+    // 5. Other stuff
+
+    // Class and new-tab-opening for external links
+    $("a[href^='http']").each(function() {
+      this.setAttribute("class", "external-link");
+      this.setAttribute("target", "_blank");
+    });
+  });
+</script>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="3-dinamica-particulas.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="4-parts.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": true,
+"weibo": false,
+"instapaper": true,
+"vk": false,
+"whatsapp": false,
+"all": {}
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 1
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": ["book-MQ.pdf"],
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "section"
+},
+"info": false
+});
+});
+</script>
+
+</body>
+
+</html>
