@@ -25,6 +25,7 @@ bookdown::gitbook:
       weibo: no
       instapaper: yes
       vk: no
+      whatsapp: yes
       all: []
     info: no
 bookdown::pdf_book:
