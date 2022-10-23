@@ -140,7 +140,7 @@ div.csl-indent {
 }
 </style>
 
-<link rel="stylesheet" href="web/style.css" type="text/css" />
+<link rel="stylesheet" href="web/gitbook-custom.css" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" type="text/css" />
 <link rel="stylesheet" href="web/lite-yt-embed.css" type="text/css" />
 </head>
@@ -244,82 +244,82 @@ div.csl-indent {
 <p>Here we quickly recall most of the fundamental mathematical results that we will rely on in the rest of this book, most importantly <em>linear algebra over the complex numbers</em>.
 However, we will not introduce everything from the ground up.
 Most notably, we will assume that the reader understands what a <strong>matrix</strong> is, and how it represents a <strong>linear transformation</strong>; some prior exposure to <strong>complex numbers</strong> would be helpful.</p>
-<p>If an equation like <span class="math inline">\(\operatorname{tr}|a\rangle\langle b|=\langle b|a\rangle\)</span> makes sense to you, then you can safely skip over this section and get started directly with Chapter <a href="#quantum-interference"><strong>??</strong></a>.</p>
-<p>As a small note on notation, we generally write “<span class="math inline">\(x\mathrel{=}y\)</span>” to mean “<span class="math inline">\(x\)</span> is defined to be (equal to) <span class="math inline">\(y\)</span>”, and “<span class="math inline">\(x\equiv y\)</span>” to mean “<span class="math inline">\(x\)</span> is just another name for <span class="math inline">\(y\)</span>”, but sometimes we simply just write “<span class="math inline">\(x=y\)</span>”.</p>
+<p>If an equation like <eq env="math">\operatorname{tr}|a\rangle\langle b|=\langle b|a\rangle</eq> makes sense to you, then you can safely skip over this section and get started directly with Chapter <a href="#quantum-interference"><strong>??</strong></a>.</p>
+<p>As a small note on notation, we generally write “<eq env="math">x\mathrel{=}y</eq>” to mean “<eq env="math">x</eq> is defined to be (equal to) <eq env="math">y</eq>”, and “<eq env="math">x\equiv y</eq>” to mean “<eq env="math">x</eq> is just another name for <eq env="math">y</eq>”, but sometimes we simply just write “<eq env="math">x=y</eq>”.</p>
 <div id="complex-numbers" class="section level2 hasAnchor" number="1.1">
 <h2><span class="header-section-number">1.1</span> Complex numbers<a href="01-PreliminaresMatematicas.html#complex-numbers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>One of the fundamental ingredients of quantum information science (and, indeed, of quantum physics in general) is the notion of <strong>complex numbers</strong>.
 It would be disingenuous to expect that a few paragraphs would suffice to make the reader sufficiently familiar with subject, but we try our best here to give a speedy overview of the core principles, and end with some exercises that can be a helpful indicator as to what things you might want to read up on elsewhere.</p>
-<p>The “classical” way of arriving at complex numbers is as follows: start with the <strong>natural numbers</strong> <span class="math inline">\(\mathbb{N}=\{0,1,2,\ldots\}\)</span>, which we can add; if we want to be able to invert addition (i.e. subtract), then we end up with the <strong>integers</strong> <span class="math inline">\(\mathbb{Z}=\{\ldots,-2,-1,0,1,2,\ldots\}\)</span>, which we can multiply; if we want to be able to invert multiplication (i.e. divide), then we end up with the <strong>rationals</strong> <span class="math inline">\(\mathbb{Q}=\{\frac{p}{q}\mid p,q\in\mathbb{Z}\}\)</span>.
+<p>The “classical” way of arriving at complex numbers is as follows: start with the <strong>natural numbers</strong> <eq env="math">\mathbb{N}=\{0,1,2,\ldots\}</eq>, which we can add; if we want to be able to invert addition (i.e. subtract), then we end up with the <strong>integers</strong> <eq env="math">\mathbb{Z}=\{\ldots,-2,-1,0,1,2,\ldots\}</eq>, which we can multiply; if we want to be able to invert multiplication (i.e. divide), then we end up with the <strong>rationals</strong> <eq env="math">\mathbb{Q}=\{\frac{p}{q}\mid p,q\in\mathbb{Z}\}</eq>.
 In this process of “closure under more and more binary operations”, we have passed from a <strong>monoid</strong>, to a <strong>group</strong>, to a <strong>field</strong>.
-Algebraically, then, we seem to be done: we can do all the addition and multiplication that we like, and we can invert it whenever it makes sense to do so (e.g. we can divide, as long as it’s not by <span class="math inline">\(0\)</span>).</p>
-<p>But there are lots of numbers that turn up in geometry that are not rational, such as <span class="math inline">\(\sqrt{2}\approx1.414\)</span>, <span class="math inline">\(\pi\approx3.14\)</span>, and <span class="math inline">\(e\approx2.718\)</span>.
-To include all of these (and simultaneously make sense of things like infinite sums, and limits), we must do some <strong>real analysis</strong> — something which we won’t touch upon here — to end up with the <strong>real numbers</strong> <span class="math inline">\(\mathbb{R}\)</span>.
+Algebraically, then, we seem to be done: we can do all the addition and multiplication that we like, and we can invert it whenever it makes sense to do so (e.g. we can divide, as long as it’s not by <eq env="math">0</eq>).</p>
+<p>But there are lots of numbers that turn up in geometry that are not rational, such as <eq env="math">\sqrt{2}\approx1.414</eq>, <eq env="math">\pi\approx3.14</eq>, and <eq env="math">e\approx2.718</eq>.
+To include all of these (and simultaneously make sense of things like infinite sums, and limits), we must do some <strong>real analysis</strong> — something which we won’t touch upon here — to end up with the <strong>real numbers</strong> <eq env="math">\mathbb{R}</eq>.
 These form a field, just like the rationals, but now we don’t have any “gaps” in our number line.
 So what’s left to do?</p>
 <p>Well the reals have one big problem: they are not <strong>algebraically closed</strong>.
-That is, there exist polynomials with no roots, i.e. equations of the form <span class="math inline">\(a_nx^n+a_{n-1}x^{n-1}+\ldots+a_1x+a_0=0\)</span> (where the <span class="math inline">\(a_i\)</span> are real numbers) that have no solutions.<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a>
-Somehow the most fundamental such example is the equation <span class="math inline">\(x^2+1=0\)</span>, which has no solutions, because the square of any real number must be non-negative, and so <span class="math inline">\(\sqrt{-1}\not\in\mathbb{R}\)</span>.</p>
-<p>It turns out that if we just throw in this one extra number <span class="math inline">\(i\mathrel{=}\sqrt{-1}\)</span> to <span class="math inline">\(\mathbb{R}\)</span> then we can solve <em>any</em> polynomial — a theorem so important that it’s known as the <strong>fundamental theorem of algebra</strong>.
-We call the result of doing this the <strong>complex numbers</strong>, and denote them by <span class="math inline">\(\mathbb{C}\)</span>.</p>
-<p>This gives us an algebraic way of understanding what a complex number is: it is a real number <span class="math inline">\(x\)</span> plus an <strong>imaginary</strong> number <span class="math inline">\(iy\)</span> (where <span class="math inline">\(y\in\mathbb{R}\)</span>)
-That is, every complex number <span class="math inline">\(x+iy\)</span> simply corresponds to a pair of real numbers <span class="math inline">\((x,y)\)</span>.
+That is, there exist polynomials with no roots, i.e. equations of the form <eq env="math">a_nx^n+a_{n-1}x^{n-1}+\ldots+a_1x+a_0=0</eq> (where the <eq env="math">a_i</eq> are real numbers) that have no solutions.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
+Somehow the most fundamental such example is the equation <eq env="math">x^2+1=0</eq>, which has no solutions, because the square of any real number must be non-negative, and so <eq env="math">\sqrt{-1}\not\in\mathbb{R}</eq>.</p>
+<p>It turns out that if we just throw in this one extra number <eq env="math">i\mathrel{=}\sqrt{-1}</eq> to <eq env="math">\mathbb{R}</eq> then we can solve <em>any</em> polynomial — a theorem so important that it’s known as the <strong>fundamental theorem of algebra</strong>.
+We call the result of doing this the <strong>complex numbers</strong>, and denote them by <eq env="math">\mathbb{C}</eq>.</p>
+<p>This gives us an algebraic way of understanding what a complex number is: it is a real number <eq env="math">x</eq> plus an <strong>imaginary</strong> number <eq env="math">iy</eq> (where <eq env="math">y\in\mathbb{R}</eq>)
+That is, every complex number <eq env="math">x+iy</eq> simply corresponds to a pair of real numbers <eq env="math">(x,y)</eq>.
 So now we can think geometrically!
-We imagine the complex numbers <span class="math inline">\(\mathbb{C}\)</span> as the 2-dimensional Euclidean space <span class="math inline">\(\mathbb{R}^2\)</span>, where the <span class="math inline">\(x\)</span>-axis corresponds to the real part of a complex number, and the <span class="math inline">\(y\)</span>-axis to the imaginary part.
+We imagine the complex numbers <eq env="math">\mathbb{C}</eq> as the 2-dimensional Euclidean space <eq env="math">\mathbb{R}^2</eq>, where the <eq env="math">x</eq>-axis corresponds to the real part of a complex number, and the <eq env="math">y</eq>-axis to the imaginary part.
 This really is a geometric way of thinking, since now addition (and subtraction) of complex numbers (which is defined by adding their real and imaginary parts separately) is given by vector addition, as shown in Figure <a href="#fig:complex-addition"><strong>??</strong></a>.</p>
 
 <p>But what about multiplication and division?
-Following the rules of the game, we can figure out what the product of two complex numbers is by treating the imaginary number <span class="math inline">\(i\)</span> as a “formal variable”, i.e. pretending it’s just a variable in some polynomial, and then remembering that <span class="math inline">\(i=\sqrt{-1}\)</span> at the very end:
-<span class="math display">\[
+Following the rules of the game, we can figure out what the product of two complex numbers is by treating the imaginary number <eq env="math">i</eq> as a “formal variable”, i.e. pretending it’s just a variable in some polynomial, and then remembering that <eq env="math">i=\sqrt{-1}</eq> at the very end:
+<eq env="displaymath">
   \begin{aligned}
-    (x+iy)(x&#39;+iy&#39;)
-    &amp;= xx&#39;+ixy&#39;+iyx&#39;+i^2yy&#39;
-  \\&amp;= xx&#39;+ixy&#39;+iyx&#39;-yy&#39;
-  \\&amp;= xx&#39;-yy&#39;+i(xy&#39;+yx&#39;).
+    (x+iy)(x'+iy')
+    &amp;= xx'+ixy'+iyx'+i^2yy'
+  \\&amp;= xx'+ixy'+iyx'-yy'
+  \\&amp;= xx'-yy'+i(xy'+yx').
   \end{aligned}
-\]</span></p>
-<p>Division works similarly — the most simple example of inverting a complex number <span class="math inline">\(x+iy\)</span> makes sense whenever <span class="math inline">\(x\)</span> and <span class="math inline">\(y\)</span> are both non-zero, since then we can use the trick of “multiplying by <span class="math inline">\(1\)</span>”:
-<span class="math display">\[
+</eq></p>
+<p>Division works similarly — the most simple example of inverting a complex number <eq env="math">x+iy</eq> makes sense whenever <eq env="math">x</eq> and <eq env="math">y</eq> are both non-zero, since then we can use the trick of “multiplying by <eq env="math">1</eq>”:
+<eq env="displaymath">
   \begin{aligned}
     \frac{1}{x+iy}
     &amp;= \frac{1}{x+iy}\frac{x-iy}{x-iy}
   \\&amp;= \frac{x-iy}{x^2+y^2}
   \\&amp;= \frac{x}{x^2+y^2}-i\frac{y}{x+2+y^2}
   \end{aligned}
-\]</span></p>
-<p>This other complex number <span class="math inline">\(x-iy\)</span> that we used is somehow special because it is exactly the thing we needed to make the denominator real, so we give it a name: the <strong>complex conjugate</strong><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> of a complex number <span class="math inline">\(z=x+iy\)</span> is the complex number <span class="math inline">\(z^\star\mathrel{=}x-iy\)</span>.
-Geometrically, this is just the reflection of the vector <span class="math inline">\((x,y)\in\mathbb{R}^2\)</span> in the <span class="math inline">\(x\)</span>-axis.
-The product <span class="math inline">\(zz^\star=x^2+y^2\)</span> is also important: you might recognise (from Pythagoras’ theorem) that <span class="math inline">\(\sqrt{x^2+y^2}\)</span> is exactly the length of the vector <span class="math inline">\((x,y)\)</span>, and so we call the real number <span class="math inline">\(|z|\mathrel{=}\sqrt{zz^\star}\)</span> the <strong>modulus</strong> (or magnitude, norm, or absolute value).
-Note then that we can simply write <span class="math inline">\(1/z=z^\star/|z|^2\)</span>.</p>
+</eq></p>
+<p>This other complex number <eq env="math">x-iy</eq> that we used is somehow special because it is exactly the thing we needed to make the denominator real, so we give it a name: the <strong>complex conjugate</strong><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> of a complex number <eq env="math">z=x+iy</eq> is the complex number <eq env="math">z^\star\mathrel{=}x-iy</eq>.
+Geometrically, this is just the reflection of the vector <eq env="math">(x,y)\in\mathbb{R}^2</eq> in the <eq env="math">x</eq>-axis.
+The product <eq env="math">zz^\star=x^2+y^2</eq> is also important: you might recognise (from Pythagoras’ theorem) that <eq env="math">\sqrt{x^2+y^2}</eq> is exactly the length of the vector <eq env="math">(x,y)</eq>, and so we call the real number <eq env="math">|z|\mathrel{=}\sqrt{zz^\star}</eq> the <strong>modulus</strong> (or magnitude, norm, or absolute value).
+Note then that we can simply write <eq env="math">1/z=z^\star/|z|^2</eq>.</p>
 <p>Now things are looking somewhat nice, but the story isn’t complete.
-We have a good geometric intuition for what a complex number is (a vector in <span class="math inline">\(\mathbb{R}^2\)</span>) and how to add them (vector addition), as well as what the complex conjugate and the modulus mean (reflection in the <span class="math inline">\(x\)</span>-axis, and the length of the vector, respectively); but what about multiplication and division?</p>
-<p>To understand these we need to switch from our <strong>rectangular coordinates</strong> <span class="math inline">\(z=x+iy\)</span> to <strong>polar coordinates</strong> — instead of describing a point <span class="math inline">\(z\)</span> in <span class="math inline">\(\mathbb{R}^2\)</span> as “<span class="math inline">\(x\)</span> units left/right and <span class="math inline">\(y\)</span> units up/down”, we describe it as “<span class="math inline">\(r\)</span> units from the origin, at an angle of <span class="math inline">\(\theta\)</span> <a href="https://en.wikipedia.org/wiki/Radian"><strong>radians</strong></a>”.
-We already know, given <span class="math inline">\((x,y)\in\mathbb{R}^2\)</span>, how to calculate its distance <span class="math inline">\(r\)</span> from the origin, since this is exactly the length of the vector: <span class="math inline">\(r=|(x,y)|=\sqrt{x^2+y^2}\)</span>.
+We have a good geometric intuition for what a complex number is (a vector in <eq env="math">\mathbb{R}^2</eq>) and how to add them (vector addition), as well as what the complex conjugate and the modulus mean (reflection in the <eq env="math">x</eq>-axis, and the length of the vector, respectively); but what about multiplication and division?</p>
+<p>To understand these we need to switch from our <strong>rectangular coordinates</strong> <eq env="math">z=x+iy</eq> to <strong>polar coordinates</strong> — instead of describing a point <eq env="math">z</eq> in <eq env="math">\mathbb{R}^2</eq> as “<eq env="math">x</eq> units left/right and <eq env="math">y</eq> units up/down”, we describe it as “<eq env="math">r</eq> units from the origin, at an angle of <eq env="math">\theta</eq> <a href="https://en.wikipedia.org/wiki/Radian"><strong>radians</strong></a>”.
+We already know, given <eq env="math">(x,y)\in\mathbb{R}^2</eq>, how to calculate its distance <eq env="math">r</eq> from the origin, since this is exactly the length of the vector: <eq env="math">r=|(x,y)|=\sqrt{x^2+y^2}</eq>.
 But what about the angle?
-Some trigonometry tells us that <span class="math inline">\(\theta=\tan(y/x)\)</span>, so we now know how to convert rectangular to polar coordinates:
-<span class="math display">\[
+Some trigonometry tells us that <eq env="math">\theta=\tan(y/x)</eq>, so we now know how to convert rectangular to polar coordinates:
+<eq env="displaymath">
   x+iy = (x,y)
   \longmapsto (r,\theta) \mathrel{=}(\sqrt{x^2+y^2},\tan(y/x)).
-\]</span></p>
+</eq></p>
 <p>It would be nice to know how to go in the other direction though, but this can also be solved with some trigonometry:
-<span class="math display">\[
+<eq env="displaymath">
   (r,\theta)
   \longmapsto (r\cos\theta,r\sin\theta).
-\]</span></p>
+</eq></p>
 
 <p>Great!
 … but what’s the point of polar coordinates?
-Well, it turns out that they give us a geometric way of understanding multiplication: you can show<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> that <span class="math inline">\((r,\theta)\)</span> multiplied by <span class="math inline">\((r&#39;,\theta&#39;)\)</span> is exactly <span class="math inline">\((rr&#39;,\theta+\theta&#39;)\)</span>, which says that multiplication by a complex number <span class="math inline">\((r,\theta)\)</span> is exactly a scaling by a factor of <span class="math inline">\(r\)</span> and a rotation by <span class="math inline">\(\theta\)</span>.
-This means that we can also easily find the multiplicative inverse of <span class="math inline">\((r,\theta)\)</span>, since it’s just <span class="math inline">\((1/r,-\theta)\)</span>.
-Finally, complex conjugation just means switching the sign of the angle: <span class="math inline">\((r,\theta)^\star=(r,-\theta)\)</span>.</p>
+Well, it turns out that they give us a geometric way of understanding multiplication: you can show<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> that <eq env="math">(r,\theta)</eq> multiplied by <eq env="math">(r',\theta')</eq> is exactly <eq env="math">(rr',\theta+\theta')</eq>, which says that multiplication by a complex number <eq env="math">(r,\theta)</eq> is exactly a scaling by a factor of <eq env="math">r</eq> and a rotation by <eq env="math">\theta</eq>.
+This means that we can also easily find the multiplicative inverse of <eq env="math">(r,\theta)</eq>, since it’s just <eq env="math">(1/r,-\theta)</eq>.
+Finally, complex conjugation just means switching the sign of the angle: <eq env="math">(r,\theta)^\star=(r,-\theta)</eq>.</p>
 <p>There is one last ingredient that we should mention, which is the thing that really solidifies the relation between rectangular and polar coordinates.
-We know that rectangular coordinates <span class="math inline">\((x,y)\)</span> can be written as <span class="math inline">\(x+iy\)</span>, so is there some more algebraic way of writing polar coordinates <span class="math inline">\((r,\theta)\)</span>?
-Then we can avoid any ambiguity that might arise from using pairs of numbers — if I tell you that I’m thinking of the complex number <span class="math inline">\(z=(0.3,2)\)</span>, do I mean the point <span class="math inline">\(0.3+2i\)</span>, or the point that is distance <span class="math inline">\(r\)</span> from the origin at an angle of <span class="math inline">\(2\)</span> radians?</p>
-<p>Given polar coordinates <span class="math inline">\((r,\theta)\)</span>, we know that this is equal to <span class="math inline">\((r\cos\theta,r\sin\theta)\)</span> in rectangular coordinates.
-For simplicity, let’s first consider the case where <span class="math inline">\(r=1\)</span>.
-Then we can write <span class="math inline">\((1,\theta)\)</span> as <span class="math inline">\(\cos\theta+i\sin\theta\)</span>.
-Using the <a href="https://en.wikipedia.org/wiki/Taylor_series"><strong>Taylor series</strong></a><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> of <span class="math inline">\(\sin\)</span> and <span class="math inline">\(\cos\)</span>, we can rewrite this as
-<span class="math display">\[
+We know that rectangular coordinates <eq env="math">(x,y)</eq> can be written as <eq env="math">x+iy</eq>, so is there some more algebraic way of writing polar coordinates <eq env="math">(r,\theta)</eq>?
+Then we can avoid any ambiguity that might arise from using pairs of numbers — if I tell you that I’m thinking of the complex number <eq env="math">z=(0.3,2)</eq>, do I mean the point <eq env="math">0.3+2i</eq>, or the point that is distance <eq env="math">r</eq> from the origin at an angle of <eq env="math">2</eq> radians?</p>
+<p>Given polar coordinates <eq env="math">(r,\theta)</eq>, we know that this is equal to <eq env="math">(r\cos\theta,r\sin\theta)</eq> in rectangular coordinates.
+For simplicity, let’s first consider the case where <eq env="math">r=1</eq>.
+Then we can write <eq env="math">(1,\theta)</eq> as <eq env="math">\cos\theta+i\sin\theta</eq>.
+Using the <a href="https://en.wikipedia.org/wiki/Taylor_series"><strong>Taylor series</strong></a><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> of <eq env="math">\sin</eq> and <eq env="math">\cos</eq>, we can rewrite this as
+<eq env="displaymath">
   \begin{aligned}
     \cos\theta+i\sin\theta
     &amp;= \left(
@@ -331,39 +331,39 @@ Using the <a href="https://en.wikipedia.org/wiki/Taylor_series"><strong>Taylor s
   \\&amp;= 1+i\theta+\frac{i^2\theta^2}{2!}+\frac{i^3\theta^3}{3!}+\frac{i^4\theta^4}{4!}+\frac{i^5\theta^5}{5!}+\ldots
   \\&amp;= \exp(i\theta)
   \end{aligned}
-\]</span>
-where at the very end we use the Taylor expansion of the <a href="https://en.wikipedia.org/wiki/Exponential_function"><strong>exponential function</strong></a> <span class="math inline">\(\exp(x)=e^x\)</span>.</p>
-<p>We have just “proved”<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> one of the most remarkable formulas in mathematics: <strong>Euler’s formula</strong>
-<span class="math display">\[
+</eq>
+where at the very end we use the Taylor expansion of the <a href="https://en.wikipedia.org/wiki/Exponential_function"><strong>exponential function</strong></a> <eq env="math">\exp(x)=e^x</eq>.</p>
+<p>We have just “proved”<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> one of the most remarkable formulas in mathematics: <strong>Euler’s formula</strong>
+<eq env="displaymath">
   e^{i\theta} = \cos\theta+i\sin\theta
-\]</span>
-(a special case of which gives the famous equation <span class="math inline">\(e^{i\pi}+1=0\)</span>, uniting five fundamental constants: <span class="math inline">\(0\)</span>, <span class="math inline">\(1\)</span>, <span class="math inline">\(i\)</span>, <span class="math inline">\(e\)</span>, and <span class="math inline">\(\pi\)</span>).
-In summary then, we have two beautiful ways of expressing a complex number <span class="math inline">\(z\in\mathbb{C}\)</span>, in either its rectangular/planar form or its polar/Euler form:
-<span class="math display">\[
+</eq>
+(a special case of which gives the famous equation <eq env="math">e^{i\pi}+1=0</eq>, uniting five fundamental constants: <eq env="math">0</eq>, <eq env="math">1</eq>, <eq env="math">i</eq>, <eq env="math">e</eq>, and <eq env="math">\pi</eq>).
+In summary then, we have two beautiful ways of expressing a complex number <eq env="math">z\in\mathbb{C}</eq>, in either its rectangular/planar form or its polar/Euler form:
+<eq env="displaymath">
   z = x+iy = re^{i\theta}.
-\]</span></p>
+</eq></p>
 <div class="idea">
-<p>Addition and subtraction are most neatly expressed in the planar form <span class="math inline">\(x+iy\)</span>, and multiplication and division are most neatly expressed in the polar form <span class="math inline">\(re^{i\theta}\)</span>; complex conjugation looks nice and tidy in both.</p>
+<p>Addition and subtraction are most neatly expressed in the planar form <eq env="math">x+iy</eq>, and multiplication and division are most neatly expressed in the polar form <eq env="math">re^{i\theta}</eq>; complex conjugation looks nice and tidy in both.</p>
 </div>
 <div class="technical" title="Addition of polar vectors">
-<p>We know how to perform addition, multiplication, inversion (which is a special case of division), and complex conjugation on complex numbers in planar form, but we’ve only described how to do the last <em>three</em> of these in polar form: we haven’t said how to write <span class="math inline">\(re^{i\theta}+r&#39;e^{i\theta&#39;}\)</span> as <span class="math inline">\(se^{i\varphi}\)</span> for some <span class="math inline">\(s\)</span> and <span class="math inline">\(\varphi\)</span>.
+<p>We know how to perform addition, multiplication, inversion (which is a special case of division), and complex conjugation on complex numbers in planar form, but we’ve only described how to do the last <em>three</em> of these in polar form: we haven’t said how to write <eq env="math">re^{i\theta}+r'e^{i\theta'}</eq> as <eq env="math">se^{i\varphi}</eq> for some <eq env="math">s</eq> and <eq env="math">\varphi</eq>.
 This is because it is very messy looking:
-<span class="math display">\[
+<eq env="displaymath">
   \begin{aligned}
     s
-    &amp;= \sqrt{r^2+(r&#39;)^2+2rr&#39;\cos(\theta&#39;-\theta)}
+    &amp;= \sqrt{r^2+(r')^2+2rr'\cos(\theta'-\theta)}
   \\\varphi
-    &amp;= \theta+\operatorname{atan2}\big(r&#39;\sin(\theta&#39;-\theta),r+r&#39;\cos(\theta&#39;-\theta)\big)
+    &amp;= \theta+\operatorname{atan2}\big(r'\sin(\theta'-\theta),r+r'\cos(\theta'-\theta)\big)
   \end{aligned}
-\]</span>
-and where <span class="math inline">\(\operatorname{atan2}\)</span> is the <a href="https://en.wikipedia.org/wiki/Atan2">2-argument arctangent function</a>.</p>
+</eq>
+and where <eq env="math">\operatorname{atan2}</eq> is the <a href="https://en.wikipedia.org/wiki/Atan2">2-argument arctangent function</a>.</p>
 </div>
-<p>You do not need to know everything about this whole story of algebraically closed fields and so on, but it helps to know the basics, so here are some exercises that should help you to become more familiar.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a></p>
+<p>You do not need to know everything about this whole story of algebraically closed fields and so on, but it helps to know the basics, so here are some exercises that should help you to become more familiar.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
 <ol style="list-style-type: lower-alpha">
-<li>The set <span class="math inline">\(\mathbb{Q}\)</span> of rational numbers and the set <span class="math inline">\(\mathbb{R}\)</span> of real numbers are both fields, but the set <span class="math inline">\(\mathbb{Z}\)</span> of integers is not. Why not?</li>
+<li>The set <eq env="math">\mathbb{Q}</eq> of rational numbers and the set <eq env="math">\mathbb{R}</eq> of real numbers are both fields, but the set <eq env="math">\mathbb{Z}</eq> of integers is not. Why not?</li>
 <li>Look up the formal statement of the fundamental theorem of algebra.</li>
 <li>Evaluate each of the following quantities:
-<span class="math display">\[
+<eq env="displaymath">
 1+e^{-i\pi},
 \quad
 |1+i|,
@@ -375,49 +375,49 @@ and where <span class="math inline">\(\operatorname{atan2}\)</span> is the <a hr
 2^i,
 \quad
 i^i.
-  \]</span></li>
-<li>Here is a simple “proof” that <span class="math inline">\(+1=-1\)</span>:
-<span class="math display">\[
+  </eq></li>
+<li>Here is a simple “proof” that <eq env="math">+1=-1</eq>:
+<eq env="displaymath">
 1=\sqrt{1}=\sqrt{(-1)(-1)}=\sqrt{-1}\sqrt{-1}=i^2=-1.
-  \]</span>
+  </eq>
 What is wrong with it?</li>
-<li>Prove that, for any two complex numbers <span class="math inline">\(w,z\in\mathbb{C}\)</span>, we always have the inequality
-<span class="math display">\[
+<li>Prove that, for any two complex numbers <eq env="math">w,z\in\mathbb{C}</eq>, we always have the inequality
+<eq env="displaymath">
 |z-w| \geqslant|z|-|w|.
-  \]</span>
+  </eq>
 <em>Hint: use polar form, draw a diagram, and appeal to the <a href="https://en.wikipedia.org/wiki/Triangle_inequality"><strong>triangle inequality</strong></a>!</em></li>
-<li>Using the fact that <span class="math inline">\(e^{3i\theta}=(e^{i\theta})^3\)</span>, derive a formula for <span class="math inline">\(\cos3\theta\)</span> in terms of <span class="math inline">\(\cos\theta\)</span> and <span class="math inline">\(\sin\theta\)</span>.</li>
+<li>Using the fact that <eq env="math">e^{3i\theta}=(e^{i\theta})^3</eq>, derive a formula for <eq env="math">\cos3\theta</eq> in terms of <eq env="math">\cos\theta</eq> and <eq env="math">\sin\theta</eq>.</li>
 </ol>
 </div>
 <div id="euclidean-vectors-and-vector-spaces" class="section level2 hasAnchor" number="1.2">
 <h2><span class="header-section-number">1.2</span> Euclidean vectors and vector spaces<a href="01-PreliminaresMatematicas.html#euclidean-vectors-and-vector-spaces" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>We assume that you are familiar with Euclidean vectors — those arrow-like geometric objects which are used to represent physical quantities, such as trajectories, velocities, or forces.
 You know that any two velocities can be added to yield a third, and the multiplication of a “velocity vector” by a real number is another “velocity vector”.
-So a <strong>linear combination</strong> of vectors is another vector: if <span class="math inline">\(v\)</span> and <span class="math inline">\(w\)</span> are vectors, and <span class="math inline">\(\lambda\)</span> and <span class="math inline">\(\mu\)</span> are numbers (rational, real, or complex, for example), then <span class="math inline">\(\lambda v+\mu w\)</span> is another vector.
+So a <strong>linear combination</strong> of vectors is another vector: if <eq env="math">v</eq> and <eq env="math">w</eq> are vectors, and <eq env="math">\lambda</eq> and <eq env="math">\mu</eq> are numbers (rational, real, or complex, for example), then <eq env="math">\lambda v+\mu w</eq> is another vector.
 Mathematicians have simply taken these properties and defined vectors as <em>anything</em> that we can add and multiply by numbers, as long as everything behaves in a nice enough way.
 This is basically what an Italian mathematician Giuseppe Peano (1858–1932) did in a chapter of his 1888 book with an impressive title: <em>Calcolo geometrico secondo l’Ausdehnungslehre di H. Grassmann preceduto dalle operazioni della logica deduttiva</em>.
 Following Peano, we define a <strong>vector space</strong> as a mathematical structure in which the notion of linear combination “makes sense”.</p>
-<p>More formally, a <strong>complex vector space</strong> is a set <span class="math inline">\(V\)</span> such that, given any two <strong>vectors</strong> <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> (that is, any two elements of <span class="math inline">\(V\)</span>) and any two <em>complex</em> numbers <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span>, we can form the linear combination <span class="math inline">\(\alpha a+\beta b\)</span>, which is also a vector in <span class="math inline">\(V\)</span>.
-There are certain “nice properties” that vector spaces things must satisfy. Addition of vectors must be commutative and associative, with an identity (the zero vector, which is often written as <span class="math inline">\(\mathbf{0}\)</span>) and an inverse for each <span class="math inline">\(v\)</span> (written as <span class="math inline">\(-v\)</span>). Multiplication by complex numbers must obey the two distributive laws: <span class="math inline">\((\alpha+\beta)v = \alpha v+\beta v\)</span> and <span class="math inline">\(\alpha (v+w) = \alpha v+\alpha w\)</span>.</p>
+<p>More formally, a <strong>complex vector space</strong> is a set <eq env="math">V</eq> such that, given any two <strong>vectors</strong> <eq env="math">a</eq> and <eq env="math">b</eq> (that is, any two elements of <eq env="math">V</eq>) and any two <em>complex</em> numbers <eq env="math">\alpha</eq> and <eq env="math">\beta</eq>, we can form the linear combination <eq env="math">\alpha a+\beta b</eq>, which is also a vector in <eq env="math">V</eq>.
+There are certain “nice properties” that vector spaces things must satisfy. Addition of vectors must be commutative and associative, with an identity (the zero vector, which is often written as <eq env="math">\mathbf{0}</eq>) and an inverse for each <eq env="math">v</eq> (written as <eq env="math">-v</eq>). Multiplication by complex numbers must obey the two distributive laws: <eq env="math">(\alpha+\beta)v = \alpha v+\beta v</eq> and <eq env="math">\alpha (v+w) = \alpha v+\alpha w</eq>.</p>
 <div class="technical" title="Modules over a ring">
 <p>A more succinct way of defining a vector space is as an abelian group endowed with a scalar action of a field.
 This showcases vector spaces as a particularly well behaved example of a more general object: <strong>modules over a ring</strong>.</p>
 </div>
-<p>A <strong>subspace</strong> of <span class="math inline">\(V\)</span> is any subset of <span class="math inline">\(V\)</span> which is closed under vector addition and multiplication by complex numbers.
-Here we start using the Dirac bra-ket notation and write vectors in a somewhat fancy way as <span class="math inline">\(|\text{label}\rangle\)</span>, where the “label” is anything that serves to specify what the vector is.
-For example, <span class="math inline">\(|\uparrow\rangle\)</span> and <span class="math inline">\(|\downarrow\rangle\)</span> may refer to an electron with spin up or down along some prescribed direction, and <span class="math inline">\(|0\rangle\)</span> and <span class="math inline">\(|1\rangle\)</span> may describe a quantum bit holding either logical <span class="math inline">\(0\)</span> or <span class="math inline">\(1\)</span>.
-As a maybe more familiar example, the set of binary strings of length <span class="math inline">\(n\)</span> is a vector space over the field <span class="math inline">\(\mathbb{Z}/2\mathbb{Z}\)</span> of integers mod <span class="math inline">\(2\)</span>; in the case <span class="math inline">\(n=2\)</span> we can write down all the vectors in this vector space in this notation: <span class="math inline">\(|00\rangle\)</span>, <span class="math inline">\(|01\rangle\)</span>, <span class="math inline">\(|10\rangle\)</span>, <span class="math inline">\(|11\rangle\)</span>, where e.g. <span class="math inline">\(|10\rangle+|11\rangle=|01\rangle\)</span> (addition is taken mod <span class="math inline">\(2\)</span>).
+<p>A <strong>subspace</strong> of <eq env="math">V</eq> is any subset of <eq env="math">V</eq> which is closed under vector addition and multiplication by complex numbers.
+Here we start using the Dirac bra-ket notation and write vectors in a somewhat fancy way as <eq env="math">|\text{label}\rangle</eq>, where the “label” is anything that serves to specify what the vector is.
+For example, <eq env="math">|\uparrow\rangle</eq> and <eq env="math">|\downarrow\rangle</eq> may refer to an electron with spin up or down along some prescribed direction, and <eq env="math">|0\rangle</eq> and <eq env="math">|1\rangle</eq> may describe a quantum bit holding either logical <eq env="math">0</eq> or <eq env="math">1</eq>.
+As a maybe more familiar example, the set of binary strings of length <eq env="math">n</eq> is a vector space over the field <eq env="math">\mathbb{Z}/2\mathbb{Z}</eq> of integers mod <eq env="math">2</eq>; in the case <eq env="math">n=2</eq> we can write down all the vectors in this vector space in this notation: <eq env="math">|00\rangle</eq>, <eq env="math">|01\rangle</eq>, <eq env="math">|10\rangle</eq>, <eq env="math">|11\rangle</eq>, where e.g. <eq env="math">|10\rangle+|11\rangle=|01\rangle</eq> (addition is taken mod <eq env="math">2</eq>).
 These are often called <strong>ket</strong> vectors, or simply <strong>kets</strong>.
 (We will deal with “bras” in a moment).</p>
-<p>A <strong>basis</strong> in <span class="math inline">\(V\)</span> is a collection of vectors <span class="math inline">\(|e_1\rangle,|e_2\rangle,\ldots,|e_n\rangle\)</span> such that every vector <span class="math inline">\(|v\rangle\)</span> in <span class="math inline">\(V\)</span> can be written (in <em>exactly</em> one way) as a linear combination of the basis vectors: <span class="math inline">\(|v\rangle=\sum_{i=1}^n v_i|e_i\rangle\)</span>.
-The number of elements in a basis is called the <strong>dimension</strong> of <span class="math inline">\(V\)</span>.<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>
-The most common, and prototypical, <span class="math inline">\(n\)</span>-dimensional complex vector space (and the space which we will be using most of the time) is the space of ordered <span class="math inline">\(n\)</span>-tuples of complex numbers, usually written as column vectors:
-<span class="math display">\[
+<p>A <strong>basis</strong> in <eq env="math">V</eq> is a collection of vectors <eq env="math">|e_1\rangle,|e_2\rangle,\ldots,|e_n\rangle</eq> such that every vector <eq env="math">|v\rangle</eq> in <eq env="math">V</eq> can be written (in <em>exactly</em> one way) as a linear combination of the basis vectors: <eq env="math">|v\rangle=\sum_{i=1}^n v_i|e_i\rangle</eq>.
+The number of elements in a basis is called the <strong>dimension</strong> of <eq env="math">V</eq>.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>
+The most common, and prototypical, <eq env="math">n</eq>-dimensional complex vector space (and the space which we will be using most of the time) is the space of ordered <eq env="math">n</eq>-tuples of complex numbers, usually written as column vectors:
+<eq env="displaymath">
   |a\rangle
   = \begin{bmatrix}a_1\\a_2\\\vdots\\a_n\end{bmatrix}
-\]</span>
-with a basis given by the column vectors <span class="math inline">\(|e_i\rangle\)</span> that are <span class="math inline">\(0\)</span> in every row except for a <span class="math inline">\(1\)</span> in the <span class="math inline">\(i\)</span>-th row:
-<span class="math display">\[
+</eq>
+with a basis given by the column vectors <eq env="math">|e_i\rangle</eq> that are <eq env="math">0</eq> in every row except for a <eq env="math">1</eq> in the <eq env="math">i</eq>-th row:
+<eq env="displaymath">
   |e_1\rangle
   = \begin{bmatrix}1\\0\\\vdots\\0\end{bmatrix}
   \qquad
@@ -426,14 +426,14 @@ with a basis given by the column vectors <span class="math inline">\(|e_i\rangle
   \qquad\ldots\qquad
   |e_n\rangle
   = \begin{bmatrix}0\\0\\\vdots\\1\end{bmatrix}
-\]</span>
+</eq>
 and where addition of vectors is done <strong>component-wise</strong>, so that
-<span class="math display">\[
+<eq env="displaymath">
   \left(\sum_{i=1}^n v_i|e_i\rangle\right)+\left(\sum_{i=1}^n w_i|e_i\rangle\right)
   = \sum_{i=1}^n (v_i+w_i)|e_i\rangle
-\]</span>
+</eq>
 or, in column vectors,
-<span class="math display">\[
+<eq env="displaymath">
   \begin{gathered}
     |v\rangle
     = \begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}
@@ -443,238 +443,238 @@ or, in column vectors,
   \\\alpha|a\rangle+\beta|b\rangle
     = \begin{bmatrix}\alpha v_1+\beta w_1\\\alpha v_2+\beta w_2\\\vdots\\\alpha v_n+\beta w_n\end{bmatrix}
   \end{gathered}
-\]</span></p>
+</eq></p>
 <p>Throughout the course we will deal only with vector spaces of <em>finite</em> dimensions.
 This is sufficient for all our purposes and we will avoid many mathematical subtleties associated with infinite dimensional spaces, for which we would need the tools of <strong>functional analysis</strong>.</p>
-<p>Formally, whenever we say <strong><span class="math inline">\(n\)</span>-dimensional Euclidean space</strong>, we mean the <em>real</em> vector space <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+<p>Formally, whenever we say <strong><eq env="math">n</eq>-dimensional Euclidean space</strong>, we mean the <em>real</em> vector space <eq env="math">\mathbb{R}^n</eq>.</p>
 </div>
 <div id="bras-and-kets" class="section level2 hasAnchor" number="1.3">
 <h2><span class="header-section-number">1.3</span> Bras and kets<a href="01-PreliminaresMatematicas.html#bras-and-kets" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>An <strong>inner product</strong> on a vector space <span class="math inline">\(V\)</span> (over the complex numbers) is a function that assigns to each pair of vectors <span class="math inline">\(|u\rangle,|v\rangle\in V\)</span> a complex number <span class="math inline">\(\langle u|v\rangle\)</span>, and satisfies the following conditions:</p>
+<p>An <strong>inner product</strong> on a vector space <eq env="math">V</eq> (over the complex numbers) is a function that assigns to each pair of vectors <eq env="math">|u\rangle,|v\rangle\in V</eq> a complex number <eq env="math">\langle u|v\rangle</eq>, and satisfies the following conditions:</p>
 <ul>
-<li><span class="math inline">\(\langle u|v\rangle=\langle v|u\rangle^\star\)</span></li>
-<li><span class="math inline">\(\langle v|v\rangle\geqslant 0\)</span> for all <span class="math inline">\(|v\rangle\)</span></li>
-<li><span class="math inline">\(\langle v|v\rangle= 0\)</span> if and only if <span class="math inline">\(|v\rangle=0\)</span></li>
+<li><eq env="math">\langle u|v\rangle=\langle v|u\rangle^\star</eq></li>
+<li><eq env="math">\langle v|v\rangle\geqslant 0</eq> for all <eq env="math">|v\rangle</eq></li>
+<li><eq env="math">\langle v|v\rangle= 0</eq> if and only if <eq env="math">|v\rangle=0</eq></li>
 </ul>
-<p>where <span class="math inline">\({}^\star\)</span> denotes complex conjugation (sometimes written as <span class="math inline">\(z\mapsto\bar{z}\)</span> instead).</p>
+<p>where <eq env="math">{}^\star</eq> denotes complex conjugation (sometimes written as <eq env="math">z\mapsto\bar{z}</eq> instead).</p>
 <p>The inner product must also be <em>linear</em> in the second argument but <em>antilinear</em> in the first argument:
-<span class="math display">\[
+<eq env="displaymath">
   \langle c_1u_1+c_2u_2|v\rangle = c_1^\star\langle u_1|v\rangle+c_2^\star\langle u_2|v\rangle
-\]</span>
-for any complex constants <span class="math inline">\(c_1\)</span> and <span class="math inline">\(c_2\)</span>.</p>
-<p>To any physical system we associate<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> a complex vector space with an inner product, known as a <strong>Hilbert space</strong> <span class="math inline">\(\mathcal{H}\)</span>.
-The inner product between vectors <span class="math inline">\(|u\rangle\)</span> and <span class="math inline">\(|v\rangle\)</span> in <span class="math inline">\({\mathcal{H}}\)</span> is written as <span class="math inline">\(\langle u|v\rangle\)</span>.</p>
+</eq>
+for any complex constants <eq env="math">c_1</eq> and <eq env="math">c_2</eq>.</p>
+<p>To any physical system we associate<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> a complex vector space with an inner product, known as a <strong>Hilbert space</strong> <eq env="math">\mathcal{H}</eq>.
+The inner product between vectors <eq env="math">|u\rangle</eq> and <eq env="math">|v\rangle</eq> in <eq env="math">{\mathcal{H}}</eq> is written as <eq env="math">\langle u|v\rangle</eq>.</p>
 <div class="technical" title="Finite-dimensional functional analysis">
-<p>If <span class="math inline">\(V\)</span> is a vector space with an inner product <span class="math inline">\(\langle-,-\rangle\)</span>, then this gives us a <strong>norm</strong> on <span class="math inline">\(V\)</span> by defining <span class="math inline">\(\|x\|=\sqrt{\langle x,x\rangle}\)</span> and thus a <strong>metric</strong> by defining <span class="math inline">\(d(x,y)=\|y-x\|\)</span>.
-We say that a sequence <span class="math inline">\((x_n)\)</span> in <span class="math inline">\(V\)</span> is <strong>Cauchy</strong> if its elements “eventually always get closer”, i.e. if for all <span class="math inline">\(\varepsilon&gt;0\)</span> there exists some <span class="math inline">\(N\in\mathbb{N}\)</span> such that for all <span class="math inline">\(m,n&gt;N\)</span> we have <span class="math inline">\(\|x_n-x_m\|&lt;\varepsilon\)</span>.
+<p>If <eq env="math">V</eq> is a vector space with an inner product <eq env="math">\langle-,-\rangle</eq>, then this gives us a <strong>norm</strong> on <eq env="math">V</eq> by defining <eq env="math">\|x\|=\sqrt{\langle x,x\rangle}</eq> and thus a <strong>metric</strong> by defining <eq env="math">d(x,y)=\|y-x\|</eq>.
+We say that a sequence <eq env="math">(x_n)</eq> in <eq env="math">V</eq> is <strong>Cauchy</strong> if its elements “eventually always get closer”, i.e. if for all <eq env="math">\varepsilon&gt;0</eq> there exists some <eq env="math">N\in\mathbb{N}</eq> such that for all <eq env="math">m,n&gt;N</eq> we have <eq env="math">\|x_n-x_m\|&lt;\varepsilon</eq>.
 We say that a normed space is <strong>complete</strong> if <em>every Cauchy sequence converges in that space</em>, i.e. if the limits of sequences that <em>should</em> exist actually <em>do</em> exist.</p>
 <p>Now one useful fact is the following: on a <em>finite dimensional</em> vector space, all norms are equivalent.
-(Note that this does <em>not</em> mean that <span class="math inline">\(\|x\|_1=\|x\|_2\)</span> for any two norms <span class="math inline">\(\|-\|_1\)</span> and <span class="math inline">\(\|-\|_2\)</span>, but simply that they “induce the same topology” — feel free to look up the precise definition elsewhere).
+(Note that this does <em>not</em> mean that <eq env="math">\|x\|_1=\|x\|_2</eq> for any two norms <eq env="math">\|-\|_1</eq> and <eq env="math">\|-\|_2</eq>, but simply that they “induce the same topology” — feel free to look up the precise definition elsewhere).
 This follows from another useful fact: in a <em>finite dimensional</em> vector space, the unit ball is compact.
 By a short topological argument, we can use these facts to show that what we claimed, namely that every <em>finite dimensional</em> inner product space is complete (with respect to the norm induced by the inner product, and thus with respect to <em>any</em> norm, since all norms are equivalent).</p>
 <p>In the infinite dimensional case these facts are <em>not</em> true, and we have a special name for those inner product spaces which <em>are</em> complete: <strong>Hilbert spaces</strong>.
 So working in the finite dimensional case means that “we do not have to worry about analysis”, in that the completeness property comes for free the moment we have an inner product, and we can freely refer to inner product spaces as Hilbert spaces.</p>
 </div>
-<p>For example, for column vectors <span class="math inline">\(|u\rangle\)</span> and <span class="math inline">\(|v\rangle\)</span> in <span class="math inline">\(\mathbb{C}^n\)</span> written as
-<span class="math display">\[
+<p>For example, for column vectors <eq env="math">|u\rangle</eq> and <eq env="math">|v\rangle</eq> in <eq env="math">\mathbb{C}^n</eq> written as
+<eq env="displaymath">
   |u\rangle
   = \begin{bmatrix}u_1\\u_2\\\vdots\\u_n\end{bmatrix}
   \qquad
   |v\rangle
   = \begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}
-\]</span>
+</eq>
 their inner product is defined by
-<span class="math display">\[
+<eq env="displaymath">
   \langle u|v\rangle
   = u_1^\star v_1 + u_2^\star v_2+\ldots + u_n^\star v_n.
-\]</span>
+</eq>
 Following Dirac, we may split the inner product into two ingredients:
-<span class="math display">\[
+<eq env="displaymath">
   \langle u|v\rangle
   \longrightarrow \langle u|\,|v\rangle.
-\]</span>
-Here <span class="math inline">\(|v\rangle\)</span> is a ket vector, and <span class="math inline">\(\langle u|\)</span> is called a <strong>bra</strong> vector, or a <strong>bra</strong>, and can be represented by a row vector:
-<span class="math display">\[
+</eq>
+Here <eq env="math">|v\rangle</eq> is a ket vector, and <eq env="math">\langle u|</eq> is called a <strong>bra</strong> vector, or a <strong>bra</strong>, and can be represented by a row vector:
+<eq env="displaymath">
   \langle u|
   = \begin{bmatrix}u_1^\star,&amp;u_2^\star,&amp;\ldots,&amp;u_n^\star\end{bmatrix}.
-\]</span>
+</eq>
 The inner product can now be viewed as the result of the matrix multiplication:
-<span class="math display">\[
+<eq env="displaymath">
   \begin{aligned}
     \langle u|v\rangle
     &amp;= \begin{bmatrix}u_1^\star,&amp;u_2^\star,&amp;\ldots,&amp;u_n^\star\end{bmatrix}
     \cdot \begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}
   \\&amp;= u_1^\star v_1 + u_2^\star v_2 + \ldots + u_n^\star v_n.
   \end{aligned}
-\]</span></p>
-<p>Bras are vectors: you can add them, and multiply them by scalars (which, here, are complex numbers), but they are vectors in the space <span class="math inline">\({\mathcal{H}}^\star\)</span> which is <strong>dual</strong> to <span class="math inline">\(\mathcal{H}\)</span>.
-Elements of <span class="math inline">\({\mathcal{H}}^\star\)</span> are <strong>linear functionals</strong>, that is, linear maps from <span class="math inline">\(\mathcal{H}\)</span> to <span class="math inline">\(\mathbb{C}\)</span>.
-A linear functional <span class="math inline">\(\langle u|\)</span> acting on a vector <span class="math inline">\(|v\rangle\)</span> in <span class="math inline">\(\mathcal{H}\)</span> gives a complex number <span class="math inline">\(\langle u|v\rangle\)</span>.</p>
+</eq></p>
+<p>Bras are vectors: you can add them, and multiply them by scalars (which, here, are complex numbers), but they are vectors in the space <eq env="math">{\mathcal{H}}^\star</eq> which is <strong>dual</strong> to <eq env="math">\mathcal{H}</eq>.
+Elements of <eq env="math">{\mathcal{H}}^\star</eq> are <strong>linear functionals</strong>, that is, linear maps from <eq env="math">\mathcal{H}</eq> to <eq env="math">\mathbb{C}</eq>.
+A linear functional <eq env="math">\langle u|</eq> acting on a vector <eq env="math">|v\rangle</eq> in <eq env="math">\mathcal{H}</eq> gives a complex number <eq env="math">\langle u|v\rangle</eq>.</p>
 <div class="idea">
-<p>All Hilbert spaces of the same (finite) dimension are isomorphic, so the differences between quantum systems cannot be really understood without additional structure. This structure is provided by a specific algebra of operators acting on <span class="math inline">\(\mathcal{H}\)</span>.</p>
+<p>All Hilbert spaces of the same (finite) dimension are isomorphic, so the differences between quantum systems cannot be really understood without additional structure. This structure is provided by a specific algebra of operators acting on <eq env="math">\mathcal{H}</eq>.</p>
 </div>
 </div>
 <div id="daggers" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Daggers<a href="01-PreliminaresMatematicas.html#daggers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Although <span class="math inline">\(\mathcal{H}\)</span> and <span class="math inline">\(\mathcal{H}^\star\)</span> are not identical spaces — the former is inhabited by kets, and the latter by bras — they are closely related.
-There is a bijective map from one to the other given by <span class="math inline">\(|v\rangle\leftrightarrow \langle v|\)</span>, and denoted by a <strong>dagger</strong>:<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a>
-<span class="math display">\[
+<p>Although <eq env="math">\mathcal{H}</eq> and <eq env="math">\mathcal{H}^\star</eq> are not identical spaces — the former is inhabited by kets, and the latter by bras — they are closely related.
+There is a bijective map from one to the other given by <eq env="math">|v\rangle\leftrightarrow \langle v|</eq>, and denoted by a <strong>dagger</strong>:<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>
+<eq env="displaymath">
   \begin{aligned}
     \langle v|
     &amp;= (|v\rangle)^\dagger
   \\|v\rangle
     &amp;= (\langle v|)^\dagger.
   \end{aligned}
-\]</span>
+</eq>
 We usually omit the parentheses when it is obvious what the dagger operation applies to.</p>
 <p>The dagger operation, also known as <strong>Hermitian conjugation</strong>, is <em>antilinear</em>:
-<span class="math display">\[
+<eq env="displaymath">
   \begin{aligned}
     (c_1|v_1\rangle+c_2|v_2\rangle)^\dagger
     &amp;= c_1^\star\langle v_1| + c_2^\star\langle v_2|
   \\(c_1\langle v_1|+c_2\langle v_2|)^\dagger
     &amp;= c_1^\star|v_1\rangle + c_2^\star|v_2\rangle.
   \end{aligned}
-\]</span>
+</eq>
 Also, when applied twice, the dagger operation is the identity map.</p>
-<p>You might already be familiar with Hermitian conjugation under another name: the <strong>conjugate transpose</strong><a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> of an <span class="math inline">\((n\times m)\)</span> matrix <span class="math inline">\(A\)</span> is an <span class="math inline">\((m\times n)\)</span> matrix <span class="math inline">\(A^\dagger\)</span>, obtained by interchanging the rows and columns of <span class="math inline">\(A\)</span> and taking complex conjugates of each entry in <span class="math inline">\(A\)</span>, i.e. <span class="math inline">\(A^\dagger_{ij}=A^\star_{ji}\)</span>.
+<p>You might already be familiar with Hermitian conjugation under another name: the <strong>conjugate transpose</strong><a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> of an <eq env="math">(n\times m)</eq> matrix <eq env="math">A</eq> is an <eq env="math">(m\times n)</eq> matrix <eq env="math">A^\dagger</eq>, obtained by interchanging the rows and columns of <eq env="math">A</eq> and taking complex conjugates of each entry in <eq env="math">A</eq>, i.e. <eq env="math">A^\dagger_{ij}=A^\star_{ji}</eq>.
 In particular then,
-<span class="math display">\[
+<eq env="displaymath">
   |v\rangle = \begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}
   \overset{\dagger}{\longleftrightarrow}
   \langle v| = \begin{bmatrix}v_1^\star,&amp;v_2^\star,&amp;\ldots,&amp;v_n^\star\end{bmatrix}.
-\]</span></p>
+</eq></p>
 </div>
 <div id="geometry" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Geometry<a href="01-PreliminaresMatematicas.html#geometry" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>The inner product brings geometry: the <strong>length</strong>, or <strong>norm</strong>, of <span class="math inline">\(|v\rangle\)</span> is given by <span class="math inline">\(\|v\|=\sqrt{\langle v|v\rangle}\)</span>, and we say that <span class="math inline">\(|u\rangle\)</span> and <span class="math inline">\(|v\rangle\)</span> are <strong>orthogonal</strong> if <span class="math inline">\(\langle u|v\rangle=0\)</span>.
-Any maximal set of pairwise orthogonal vectors of unit length<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a> forms an orthonormal basis, and so any vector can be expressed as a linear combination of the basis vectors:
-<span class="math display">\[
+<p>The inner product brings geometry: the <strong>length</strong>, or <strong>norm</strong>, of <eq env="math">|v\rangle</eq> is given by <eq env="math">\|v\|=\sqrt{\langle v|v\rangle}</eq>, and we say that <eq env="math">|u\rangle</eq> and <eq env="math">|v\rangle</eq> are <strong>orthogonal</strong> if <eq env="math">\langle u|v\rangle=0</eq>.
+Any maximal set of pairwise orthogonal vectors of unit length<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> forms an orthonormal basis, and so any vector can be expressed as a linear combination of the basis vectors:
+<eq env="displaymath">
   \begin{gathered}
     |v\rangle
     =\sum_i v_i|e_i\rangle
   \\\text{where $v_i=\langle e_i|v\rangle$}.
   \end{gathered}
-\]</span>
-Then the bras <span class="math inline">\(\langle e_i|\)</span> form the <strong>dual basis</strong>
-<span class="math display">\[
+</eq>
+Then the bras <eq env="math">\langle e_i|</eq> form the <strong>dual basis</strong>
+<eq env="displaymath">
   \begin{gathered}
     \langle v|
     =\sum_i v_i^\star\langle e_i|
   \\\text{where $v_i^\star=\langle v|e_i\rangle$}.
   \end{gathered}
-\]</span></p>
-<p>To make the notation a bit less cumbersome, we will sometimes label the basis kets as <span class="math inline">\(|i\rangle\)</span> rather than <span class="math inline">\(|e_i\rangle\)</span>, and write
-<span class="math display">\[
+</eq></p>
+<p>To make the notation a bit less cumbersome, we will sometimes label the basis kets as <eq env="math">|i\rangle</eq> rather than <eq env="math">|e_i\rangle</eq>, and write
+<eq env="displaymath">
   \begin{aligned}
     |v\rangle
     &amp;= \sum_i |i\rangle\langle i|v\rangle
   \\\langle v|
     &amp;= \sum_j \langle v|i\rangle\langle i|
   \end{aligned}
-\]</span>
-but <em>do not confuse <span class="math inline">\(|0\rangle\)</span> with the zero vector</em>!
-We <em>never</em> write the zero vector as <span class="math inline">\(|0\rangle\)</span>, but only ever as <span class="math inline">\(0\)</span>, without any bra or ket decorations (so e.g. <span class="math inline">\(|v\rangle+0=|v\rangle\)</span>).</p>
+</eq>
+but <em>do not confuse <eq env="math">|0\rangle</eq> with the zero vector</em>!
+We <em>never</em> write the zero vector as <eq env="math">|0\rangle</eq>, but only ever as <eq env="math">0</eq>, without any bra or ket decorations (so e.g. <eq env="math">|v\rangle+0=|v\rangle</eq>).</p>
 <p>Now that we have some notion of geometry, we can explain a bit more about this idea of associating a Hilbert space to a quantum system — we will use some terminology that we have not yet introduced, but all will be explained in due time.</p>
 <div class="idea">
-<p>To any <em>isolated</em> quantum system, which can be prepared in <span class="math inline">\(n\)</span> <strong>perfectly distinguishable</strong> states, we can associate a Hilbert space <span class="math inline">\(\mathcal{H}\)</span> of dimension <span class="math inline">\(n\)</span> such that each vector <span class="math inline">\(|v\rangle\in\mathcal{H}\)</span> of unit length <span class="math inline">\(\langle v|v\rangle=1\)</span> represents a quantum state of the system.
-The overall phase of the vector has no physical significance: <span class="math inline">\(|v\rangle\)</span> and <span class="math inline">\(e^{i\varphi}|v\rangle\)</span> (for any real <span class="math inline">\(\varphi\)</span>) both describe the same state.</p>
+<p>To any <em>isolated</em> quantum system, which can be prepared in <eq env="math">n</eq> <strong>perfectly distinguishable</strong> states, we can associate a Hilbert space <eq env="math">\mathcal{H}</eq> of dimension <eq env="math">n</eq> such that each vector <eq env="math">|v\rangle\in\mathcal{H}</eq> of unit length <eq env="math">\langle v|v\rangle=1</eq> represents a quantum state of the system.
+The overall phase of the vector has no physical significance: <eq env="math">|v\rangle</eq> and <eq env="math">e^{i\varphi}|v\rangle</eq> (for any real <eq env="math">\varphi</eq>) both describe the same state.</p>
 </div>
 <p>We note here one more fact that also won’t yet make sense, but which won’t hurt to have hidden away in the back of your mind.</p>
 <div class="idea">
-<p>The inner product <span class="math inline">\(\langle u|v\rangle\)</span> is the <strong>probability amplitude</strong> that a quantum system prepared in state <span class="math inline">\(|v\rangle\)</span> will be found in state <span class="math inline">\(|u\rangle\)</span> upon measurement.
-This means that states corresponding to orthogonal vectors (i.e. <span class="math inline">\(\langle u|v\rangle=0\)</span>) are perfectly distinguishable: if we prepare the system in state <span class="math inline">\(|v\rangle\)</span>, then it will never be found in state <span class="math inline">\(|u\rangle\)</span>, and vice versa.</p>
+<p>The inner product <eq env="math">\langle u|v\rangle</eq> is the <strong>probability amplitude</strong> that a quantum system prepared in state <eq env="math">|v\rangle</eq> will be found in state <eq env="math">|u\rangle</eq> upon measurement.
+This means that states corresponding to orthogonal vectors (i.e. <eq env="math">\langle u|v\rangle=0</eq>) are perfectly distinguishable: if we prepare the system in state <eq env="math">|v\rangle</eq>, then it will never be found in state <eq env="math">|u\rangle</eq>, and vice versa.</p>
 </div>
 </div>
 <div id="operators" class="section level2 hasAnchor" number="1.6">
 <h2><span class="header-section-number">1.6</span> Operators<a href="01-PreliminaresMatematicas.html#operators" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>A <strong>linear map</strong> between two vector spaces <span class="math inline">\(\mathcal{H}\)</span> and <span class="math inline">\(\mathcal{K}\)</span> is a function <span class="math inline">\(A\colon\mathcal{H}\to\mathcal{K}\)</span> that respects linear combinations:
-<span class="math display">\[
+<p>A <strong>linear map</strong> between two vector spaces <eq env="math">\mathcal{H}</eq> and <eq env="math">\mathcal{K}</eq> is a function <eq env="math">A\colon\mathcal{H}\to\mathcal{K}</eq> that respects linear combinations:
+<eq env="displaymath">
   A(c_1|v_1\rangle+c_2|v_2\rangle)=c_1 A|v_1\rangle+c_2 A|v_2\rangle
-\]</span>
-for any vectors <span class="math inline">\(|v_1\rangle,|v_2\rangle\)</span> and any complex numbers <span class="math inline">\(c_1,c_2\)</span>.
-We will focus mostly on <strong>endomorphisms</strong>, that is, maps from <span class="math inline">\(\mathcal{H}\)</span> to <span class="math inline">\(\mathcal{H}\)</span>, and we will call them <strong>operators</strong>.
-The symbol <span class="math inline">\(\mathbf{1}\)</span> is reserved for the identity operator that maps every element of <span class="math inline">\(\mathcal{H}\)</span> to itself (i.e. <span class="math inline">\(\mathbf{1}|v\rangle=|v\rangle\)</span> for all <span class="math inline">\(|v\rangle\in\mathcal{H}\)</span>).
-The product <span class="math inline">\(BA\)</span> of two operators <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> is the operator obtained by first applying <span class="math inline">\(A\)</span> to some ket <span class="math inline">\(|v\rangle\)</span> and then <span class="math inline">\(B\)</span> to the ket which results from applying <span class="math inline">\(A\)</span>:
-<span class="math display">\[
+</eq>
+for any vectors <eq env="math">|v_1\rangle,|v_2\rangle</eq> and any complex numbers <eq env="math">c_1,c_2</eq>.
+We will focus mostly on <strong>endomorphisms</strong>, that is, maps from <eq env="math">\mathcal{H}</eq> to <eq env="math">\mathcal{H}</eq>, and we will call them <strong>operators</strong>.
+The symbol <eq env="math">\mathbf{1}</eq> is reserved for the identity operator that maps every element of <eq env="math">\mathcal{H}</eq> to itself (i.e. <eq env="math">\mathbf{1}|v\rangle=|v\rangle</eq> for all <eq env="math">|v\rangle\in\mathcal{H}</eq>).
+The product <eq env="math">BA</eq> of two operators <eq env="math">A</eq> and <eq env="math">B</eq> is the operator obtained by first applying <eq env="math">A</eq> to some ket <eq env="math">|v\rangle</eq> and then <eq env="math">B</eq> to the ket which results from applying <eq env="math">A</eq>:
+<eq env="displaymath">
   (BA)|v\rangle = B(A|v\rangle).
-\]</span>
-The order <em>does</em> matter: in general, <span class="math inline">\(BA\neq AB\)</span>.
-In the exceptional case in which <span class="math inline">\(AB=BA\)</span>, one says that these two operators <strong>commute</strong>.
-The inverse of <span class="math inline">\(A\)</span>, written as <span class="math inline">\(A^{-1}\)</span>, is the operator that satisfies <span class="math inline">\(AA^{-1}=\mathbf{1}=A^{-1}A\)</span>.
+</eq>
+The order <em>does</em> matter: in general, <eq env="math">BA\neq AB</eq>.
+In the exceptional case in which <eq env="math">AB=BA</eq>, one says that these two operators <strong>commute</strong>.
+The inverse of <eq env="math">A</eq>, written as <eq env="math">A^{-1}</eq>, is the operator that satisfies <eq env="math">AA^{-1}=\mathbf{1}=A^{-1}A</eq>.
 For finite-dimensional spaces, one only needs to check <em>one</em> of these two conditions, since any one of the two implies the other, whereas, on an infinite-dimensional space, <em>both</em> must be checked.
-Finally, given a particular basis, an operator <span class="math inline">\(A\)</span> is uniquely determined by the entries of its matrix: <span class="math inline">\(A_{ij}=\langle i|A|j\rangle\)</span>.</p>
-<p>The <strong>adjoint</strong>, or <strong>Hermitian conjugate</strong>, of an linear map <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(A^\dagger\)</span>, is defined by the relation
-<span class="math display">\[
+Finally, given a particular basis, an operator <eq env="math">A</eq> is uniquely determined by the entries of its matrix: <eq env="math">A_{ij}=\langle i|A|j\rangle</eq>.</p>
+<p>The <strong>adjoint</strong>, or <strong>Hermitian conjugate</strong>, of an linear map <eq env="math">A</eq>, denoted by <eq env="math">A^\dagger</eq>, is defined by the relation
+<eq env="displaymath">
   \begin{gathered}
     \langle i|A^\dagger|j\rangle
     = \langle j|A|i\rangle^\star
   \\\text{for all $|i\rangle,|j\rangle\in\mathcal{H}$}
   \end{gathered}
-\]</span>
-and <span class="math inline">\(\dagger\)</span> turns <span class="math inline">\((n\times m)\)</span> matrices into <span class="math inline">\((m\times n)\)</span> matrices.</p>
-<p>An operator <span class="math inline">\(A\)</span> is said to be</p>
+</eq>
+and <eq env="math">\dagger</eq> turns <eq env="math">(n\times m)</eq> matrices into <eq env="math">(m\times n)</eq> matrices.</p>
+<p>An operator <eq env="math">A</eq> is said to be</p>
 <ul>
-<li><strong>normal</strong> if <span class="math inline">\(AA^\dagger = A^\dagger A\)</span></li>
-<li><strong>unitary</strong> if <span class="math inline">\(A^\dagger=A^{-1}\)</span></li>
-<li><strong>Hermitian</strong> (or <strong>self-adjoint</strong>) if <span class="math inline">\(A^\dagger = A\)</span>.</li>
+<li><strong>normal</strong> if <eq env="math">AA^\dagger = A^\dagger A</eq></li>
+<li><strong>unitary</strong> if <eq env="math">A^\dagger=A^{-1}</eq></li>
+<li><strong>Hermitian</strong> (or <strong>self-adjoint</strong>) if <eq env="math">A^\dagger = A</eq>.</li>
 </ul>
-<p>In particular then, being unitary implies being normal, since if <span class="math inline">\(A^\dagger=A^{-1}\)</span> then <span class="math inline">\(AA^\dagger=A^\dagger A\)</span>, since both of these are equal to <span class="math inline">\(\mathbf{1}\)</span>.
-Note also that unitary and Hermitian operators must be operators, i.e. they are represented by an <span class="math inline">\((n\times n)\)</span> matrix.</p>
-<p>Any <em>physically admissible</em> evolution of an isolated quantum system is represented by a unitary operator.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
-Note that unitary operators preserve the inner product: given a unitary operator <span class="math inline">\(U\)</span> and two kets <span class="math inline">\(|a\rangle\)</span> and <span class="math inline">\(|b\rangle\)</span>, and defining <span class="math inline">\(|a&#39;\rangle=U|a\rangle\)</span> and <span class="math inline">\(|b&#39;\rangle=U|b\rangle\)</span>, we have that
-<span class="math display">\[
+<p>In particular then, being unitary implies being normal, since if <eq env="math">A^\dagger=A^{-1}</eq> then <eq env="math">AA^\dagger=A^\dagger A</eq>, since both of these are equal to <eq env="math">\mathbf{1}</eq>.
+Note also that unitary and Hermitian operators must be operators, i.e. they are represented by an <eq env="math">(n\times n)</eq> matrix.</p>
+<p>Any <em>physically admissible</em> evolution of an isolated quantum system is represented by a unitary operator.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>
+Note that unitary operators preserve the inner product: given a unitary operator <eq env="math">U</eq> and two kets <eq env="math">|a\rangle</eq> and <eq env="math">|b\rangle</eq>, and defining <eq env="math">|a'\rangle=U|a\rangle</eq> and <eq env="math">|b'\rangle=U|b\rangle</eq>, we have that
+<eq env="displaymath">
   \begin{gathered}
-    \langle a&#39;|=\langle a|U^\dagger
-  \\\langle b&#39;|=\langle b|U^\dagger
-  \\\langle a&#39;|b&#39;\rangle=\langle a|U^\dagger U|b\rangle=\langle a|\mathbf{1}|b\rangle=\langle a|b\rangle.
+    \langle a'|=\langle a|U^\dagger
+  \\\langle b'|=\langle b|U^\dagger
+  \\\langle a'|b'\rangle=\langle a|U^\dagger U|b\rangle=\langle a|\mathbf{1}|b\rangle=\langle a|b\rangle.
   \end{gathered}
-\]</span>
+</eq>
 Preserving the inner product implies preserving the norm induced by this product, i.e. unit state vectors are mapped to unit state vectors, i.e. <em>unitary operations are the isometries of the Euclidean norm</em>.</p>
 </div>
 <div id="eigenvalues-and-eigenvectors" class="section level2 hasAnchor" number="1.7">
 <h2><span class="header-section-number">1.7</span> Eigenvalues and eigenvectors<a href="01-PreliminaresMatematicas.html#eigenvalues-and-eigenvectors" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Given an operator <span class="math inline">\(A\)</span>, an <strong>eigenvector</strong> is a non-zero vector <span class="math inline">\(|v\rangle\)</span> such that
-<span class="math display">\[
+<p>Given an operator <eq env="math">A</eq>, an <strong>eigenvector</strong> is a non-zero vector <eq env="math">|v\rangle</eq> such that
+<eq env="displaymath">
   A|v\rangle = \lambda|v\rangle
-\]</span>
-for some <span class="math inline">\(\lambda\in\mathbb{C}\)</span> (which is called the corresponding <strong>eigenvalue</strong>).
-We call the pair <span class="math inline">\((\lambda,|v\rangle)\)</span> an <strong>eigenpair</strong>, and we call the set of eigenvalues the <strong>spectrum</strong> of <span class="math inline">\(A\)</span>, denoted by <span class="math inline">\(\sigma(A)\)</span>.
-It is a surprising (but incredibly useful) fact that every operator has at least one eigenpair.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>
-Geometrically, an eigenvector of an operator <span class="math inline">\(A\)</span> is a vector upon which <span class="math inline">\(A\)</span> simply acts by “stretching”.</p>
-<p>Rewriting the defining property of an eigenpair <span class="math inline">\((\lambda,|v\rangle)\)</span>, we see that
-<span class="math display">\[
+</eq>
+for some <eq env="math">\lambda\in\mathbb{C}</eq> (which is called the corresponding <strong>eigenvalue</strong>).
+We call the pair <eq env="math">(\lambda,|v\rangle)</eq> an <strong>eigenpair</strong>, and we call the set of eigenvalues the <strong>spectrum</strong> of <eq env="math">A</eq>, denoted by <eq env="math">\sigma(A)</eq>.
+It is a surprising (but incredibly useful) fact that every operator has at least one eigenpair.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
+Geometrically, an eigenvector of an operator <eq env="math">A</eq> is a vector upon which <eq env="math">A</eq> simply acts by “stretching”.</p>
+<p>Rewriting the defining property of an eigenpair <eq env="math">(\lambda,|v\rangle)</eq>, we see that
+<eq env="displaymath">
   (A-\lambda\mathbf{1})|v\rangle = 0
-\]</span>
-which tells us that the operator <span class="math inline">\(A-\lambda\mathbf{1}\)</span> has a non-zero kernel, and is thus non-invertible.
+</eq>
+which tells us that the operator <eq env="math">A-\lambda\mathbf{1}</eq> has a non-zero kernel, and is thus non-invertible.
 This gives a useful characterisation of the spectrum in terms of a determinant:
-<span class="math display">\[
+<eq env="displaymath">
   \sigma(A) = \{\lambda\in\mathbb{C} \mid \det(A-\lambda\mathbf{1})=0\}.
-\]</span></p>
+</eq></p>
 </div>
 <div id="outer-products" class="section level2 hasAnchor" number="1.8">
 <h2><span class="header-section-number">1.8</span> Outer products<a href="01-PreliminaresMatematicas.html#outer-products" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Apart from the inner product <span class="math inline">\(\langle u|v\rangle\)</span>, which is a complex number, we can also form the <strong>outer product</strong> <span class="math inline">\(|u\rangle\langle v|\)</span>, which is a linear map (operator) on <span class="math inline">\(\mathcal{H}\)</span> (or on <span class="math inline">\(\mathcal{H}^\star\)</span>, depending how you look at it).
+<p>Apart from the inner product <eq env="math">\langle u|v\rangle</eq>, which is a complex number, we can also form the <strong>outer product</strong> <eq env="math">|u\rangle\langle v|</eq>, which is a linear map (operator) on <eq env="math">\mathcal{H}</eq> (or on <eq env="math">\mathcal{H}^\star</eq>, depending how you look at it).
 This is what physicists like (and what mathematicians dislike!) about Dirac notation: a certain degree of healthy ambiguity.</p>
 <ul>
-<li>The result of <span class="math inline">\(|u\rangle\langle v|\)</span> acting on a ket <span class="math inline">\(|x\rangle\)</span> is <span class="math inline">\(|u\rangle\langle v|x\rangle\)</span>, i.e. the vector <span class="math inline">\(|u\rangle\)</span> multiplied by the complex number <span class="math inline">\(\langle v|x\rangle\)</span>.</li>
-<li>Similarly, the result of <span class="math inline">\(|u\rangle\langle v|\)</span> acting on a bra <span class="math inline">\(\langle y|\)</span> is <span class="math inline">\(\langle y|u\rangle\langle v|\)</span>, i.e. the linear functional <span class="math inline">\(\langle v|\)</span> multiplied by the complex number <span class="math inline">\(\langle y|u\rangle\)</span>.</li>
+<li>The result of <eq env="math">|u\rangle\langle v|</eq> acting on a ket <eq env="math">|x\rangle</eq> is <eq env="math">|u\rangle\langle v|x\rangle</eq>, i.e. the vector <eq env="math">|u\rangle</eq> multiplied by the complex number <eq env="math">\langle v|x\rangle</eq>.</li>
+<li>Similarly, the result of <eq env="math">|u\rangle\langle v|</eq> acting on a bra <eq env="math">\langle y|</eq> is <eq env="math">\langle y|u\rangle\langle v|</eq>, i.e. the linear functional <eq env="math">\langle v|</eq> multiplied by the complex number <eq env="math">\langle y|u\rangle</eq>.</li>
 </ul>
-<p>The product of two maps, <span class="math inline">\(A=|a\rangle\langle b|\)</span> followed by <span class="math inline">\(B=|c\rangle\langle d|\)</span>, is a linear map <span class="math inline">\(BA\)</span>, which can be written in Dirac notation as
-<span class="math display">\[
+<p>The product of two maps, <eq env="math">A=|a\rangle\langle b|</eq> followed by <eq env="math">B=|c\rangle\langle d|</eq>, is a linear map <eq env="math">BA</eq>, which can be written in Dirac notation as
+<eq env="displaymath">
   BA = |c\rangle\langle d|a\rangle\langle b| = \langle d|a\rangle|c\rangle\langle b|
-\]</span>
-i.e. the inner product (complex number) <span class="math inline">\(\langle d|a\rangle\)</span> times the outer product (linear map) <span class="math inline">\(|c\rangle\langle b|\)</span>.</p>
-<p>Any operator on <span class="math inline">\(\mathcal{H}\)</span> can be expressed as a sum of outer products. Given an orthonormal basis <span class="math inline">\(\{|e_i\rangle\}_{i=1,\ldots,n}\)</span>, any operator which maps the basis vectors <span class="math inline">\(|e_i\rangle\)</span> to vectors <span class="math inline">\(|f_i\rangle\)</span> can be written as <span class="math inline">\(\sum_{i=1}^n|f_i\rangle\langle e_i|\)</span>.
-If the vectors <span class="math inline">\(\{|f_i\rangle\}\)</span> <em>also</em> form an orthonormal basis then the operator simply “rotates” one orthonormal basis into another.
+</eq>
+i.e. the inner product (complex number) <eq env="math">\langle d|a\rangle</eq> times the outer product (linear map) <eq env="math">|c\rangle\langle b|</eq>.</p>
+<p>Any operator on <eq env="math">\mathcal{H}</eq> can be expressed as a sum of outer products. Given an orthonormal basis <eq env="math">\{|e_i\rangle\}_{i=1,\ldots,n}</eq>, any operator which maps the basis vectors <eq env="math">|e_i\rangle</eq> to vectors <eq env="math">|f_i\rangle</eq> can be written as <eq env="math">\sum_{i=1}^n|f_i\rangle\langle e_i|</eq>.
+If the vectors <eq env="math">\{|f_i\rangle\}</eq> <em>also</em> form an orthonormal basis then the operator simply “rotates” one orthonormal basis into another.
 These are unitary operators which preserve the inner product.
-In particular, if each <span class="math inline">\(|e_i\rangle\)</span> is mapped to <span class="math inline">\(|e_i\rangle\)</span>, then we obtain the identity operator:
-<span class="math display">\[
+In particular, if each <eq env="math">|e_i\rangle</eq> is mapped to <eq env="math">|e_i\rangle</eq>, then we obtain the identity operator:
+<eq env="displaymath">
   \sum_i|e_i\rangle\langle e_i|=\mathbf{1}.
-\]</span>
-This relation holds for <em>any</em> orthonormal basis, and it is one of the most ubiquitous and useful formulas in quantum theory, known as <strong>completeness</strong>.<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a>
-For example, for any vector <span class="math inline">\(|v\rangle\)</span> and for any orthonormal basis <span class="math inline">\(\{|e_i\rangle\}\)</span>, we have
-<span class="math display">\[
+</eq>
+This relation holds for <em>any</em> orthonormal basis, and it is one of the most ubiquitous and useful formulas in quantum theory, known as <strong>completeness</strong>.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>
+For example, for any vector <eq env="math">|v\rangle</eq> and for any orthonormal basis <eq env="math">\{|e_i\rangle\}</eq>, we have
+<eq env="displaymath">
   \begin{aligned}
     |v\rangle
     &amp;= \mathbf{1}|v\rangle
@@ -682,12 +682,12 @@ For example, for any vector <span class="math inline">\(|v\rangle\)</span> and f
   \\&amp;= \sum_i |e_i\rangle\;\langle e_i|v\rangle
   \\&amp;= \sum_i v_i|e_i\rangle
   \end{aligned}
-\]</span>
-where <span class="math inline">\(v_i=\langle e_i|v\rangle\)</span> are the components of <span class="math inline">\(|v\rangle\)</span>.</p>
+</eq>
+where <eq env="math">v_i=\langle e_i|v\rangle</eq> are the components of <eq env="math">|v\rangle</eq>.</p>
 <p>Finally, note that calculating the adjoint of an outer product boils down to just swapping the order:
-<span class="math display">\[
+<eq env="displaymath">
   (|a\rangle\langle b|)^\dagger = |b\rangle\langle a|.
-\]</span></p>
+</eq></p>
 <div class="technical" title="Dagger compact categories">
 <p>This whole package of stuff and properties and structure (i.e. finite dimensional Hilbert spaces with linear maps and the dagger) bundles up into an abstract framework called a <a href="https://en.wikipedia.org/wiki/Dagger_compact_category"><strong>dagger compact category</strong></a>.
 We will not delve into the vast world of category theory in this book, and to reach an understanding of all the ingredients that go into the one single definition of dagger compact categories would take more than a single chapter.
@@ -697,18 +697,18 @@ But it’s a good idea to be aware that there are researchers in quantum informa
 <div id="the-trace" class="section level2 hasAnchor" number="1.9">
 <h2><span class="header-section-number">1.9</span> The trace<a href="01-PreliminaresMatematicas.html#the-trace" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The <strong>trace</strong> is an operation which turns outer products into inner products,
-<span class="math display">\[
+<eq env="displaymath">
   \operatorname{tr}\colon |b\rangle\langle a| \longmapsto \langle a|b\rangle.
-\]</span>
+</eq>
 We have just seen that any linear operator can be written as a sum of outer products, and so we can extend the definition of trace (by linearity) to any operator.
-Equivalently, for any square matrix <span class="math inline">\(A\)</span>, the trace of <span class="math inline">\(A\)</span> can be defined to be the sum of its diagonal elements:
-<span class="math display">\[
+Equivalently, for any square matrix <eq env="math">A</eq>, the trace of <eq env="math">A</eq> can be defined to be the sum of its diagonal elements:
+<eq env="displaymath">
   \operatorname{tr}A = \sum_k \langle e_k|A|e_k\rangle = \sum_k A_{kk}.
-\]</span>
-In fact, the trace of <span class="math inline">\(A\)</span> is equal to the sum of the eigenvalues of <span class="math inline">\(A\)</span>, even in the case where <span class="math inline">\(A\)</span> is not diagonalisable.</p>
-<p>You can show, using this definition or otherwise, that the trace is cyclic<a href="#fn18" class="footnote-ref" id="fnref18"><sup>18</sup></a> (<span class="math inline">\(\operatorname{tr}(AB) = \operatorname{tr}(BA)\)</span>) and linear (<span class="math inline">\(\operatorname{tr}(\alpha A+\beta B) = \alpha\operatorname{tr}(A)+\beta\operatorname{tr}(B)\)</span>, where <span class="math inline">\(A\)</span> and <span class="math inline">\(B\)</span> are square matrices and <span class="math inline">\(\alpha\)</span> and <span class="math inline">\(\beta\)</span> complex numbers).</p>
+</eq>
+In fact, the trace of <eq env="math">A</eq> is equal to the sum of the eigenvalues of <eq env="math">A</eq>, even in the case where <eq env="math">A</eq> is not diagonalisable.</p>
+<p>You can show, using this definition or otherwise, that the trace is cyclic<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> (<eq env="math">\operatorname{tr}(AB) = \operatorname{tr}(BA)</eq>) and linear (<eq env="math">\operatorname{tr}(\alpha A+\beta B) = \alpha\operatorname{tr}(A)+\beta\operatorname{tr}(B)</eq>, where <eq env="math">A</eq> and <eq env="math">B</eq> are square matrices and <eq env="math">\alpha</eq> and <eq env="math">\beta</eq> complex numbers).</p>
 <p>To recover the first definition from the second, we argue as follows:
-<span class="math display">\[
+<eq env="displaymath">
   \begin{aligned}
     \operatorname{tr}|b\rangle\langle a|
     &amp;= \sum_k \langle e_k|b\rangle\langle a|e_k\rangle
@@ -716,56 +716,56 @@ In fact, the trace of <span class="math inline">\(A\)</span> is equal to the sum
   \\&amp;= \langle a|\mathbf{1}|b\rangle
   \\&amp;= \langle a|b\rangle.
   \end{aligned}
-\]</span>
-Here, the second term can be viewed both as the sum of the diagonal elements of <span class="math inline">\(|b\rangle\langle a|\)</span> in the <span class="math inline">\(|e_k\rangle\)</span> basis, and as the sum of the products of two complex numbers <span class="math inline">\(\langle e_k|b\rangle\)</span> and <span class="math inline">\(\langle a|e_k\rangle\)</span>.
-We have used the decomposition of the identity, <span class="math inline">\(\sum_k|e_k\rangle\langle e_k|=\mathbf{1}\)</span>.
+</eq>
+Here, the second term can be viewed both as the sum of the diagonal elements of <eq env="math">|b\rangle\langle a|</eq> in the <eq env="math">|e_k\rangle</eq> basis, and as the sum of the products of two complex numbers <eq env="math">\langle e_k|b\rangle</eq> and <eq env="math">\langle a|e_k\rangle</eq>.
+We have used the decomposition of the identity, <eq env="math">\sum_k|e_k\rangle\langle e_k|=\mathbf{1}</eq>.
 Given that we can decompose the identity by choosing any orthonormal basis, it is clear that the trace does <em>not</em> depend on the choice of the basis.</p>
 </div>
 <div id="some-useful-identities" class="section level2 hasAnchor" number="1.10">
 <h2><span class="header-section-number">1.10</span> Some useful identities<a href="01-PreliminaresMatematicas.html#some-useful-identities" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here is a summary of some particularly useful equalities concerning bras, kets, inner products, outer products, traces, and operators, that we will be using time and time again.
-In all of these, <span class="math inline">\(|a\rangle,|b\rangle\in\mathcal{H}\)</span> are kets, <span class="math inline">\(A,B,C\)</span> are operators on <span class="math inline">\(\mathcal{H}\)</span>, and <span class="math inline">\(\alpha,\beta\in\mathbb{C}\)</span> are scalars.</p>
+In all of these, <eq env="math">|a\rangle,|b\rangle\in\mathcal{H}</eq> are kets, <eq env="math">A,B,C</eq> are operators on <eq env="math">\mathcal{H}</eq>, and <eq env="math">\alpha,\beta\in\mathbb{C}</eq> are scalars.</p>
 <p>Dagger for bras and kets:</p>
 <ul>
-<li><span class="math inline">\(|a\rangle^\dagger = \langle a|\)</span></li>
-<li><span class="math inline">\(\langle a|^\dagger = |a\rangle\)</span></li>
-<li><span class="math inline">\((|a\rangle\langle b|)^\dagger = |b\rangle\langle a|\)</span></li>
-<li><span class="math inline">\((\alpha|a\rangle+\beta|b\rangle)^\dagger = \alpha^\star\langle a|+\beta^\star\langle b|\)</span></li>
+<li><eq env="math">|a\rangle^\dagger = \langle a|</eq></li>
+<li><eq env="math">\langle a|^\dagger = |a\rangle</eq></li>
+<li><eq env="math">(|a\rangle\langle b|)^\dagger = |b\rangle\langle a|</eq></li>
+<li><eq env="math">(\alpha|a\rangle+\beta|b\rangle)^\dagger = \alpha^\star\langle a|+\beta^\star\langle b|</eq></li>
 </ul>
 <p>Dagger for operators:</p>
 <ul>
-<li><span class="math inline">\((AB)^\dagger = B^\dagger A^\dagger\)</span></li>
-<li><span class="math inline">\((A^\dagger)^\dagger = A\)</span></li>
-<li><span class="math inline">\((\alpha A+\beta B)^\dagger = \alpha^\star A^\dagger+\beta^\star B^\dagger\)</span></li>
+<li><eq env="math">(AB)^\dagger = B^\dagger A^\dagger</eq></li>
+<li><eq env="math">(A^\dagger)^\dagger = A</eq></li>
+<li><eq env="math">(\alpha A+\beta B)^\dagger = \alpha^\star A^\dagger+\beta^\star B^\dagger</eq></li>
 </ul>
 <p>Trace:</p>
 <ul>
-<li><span class="math inline">\(\operatorname{tr}(\alpha A+\beta B) = \alpha \operatorname{tr}(A)+\beta\operatorname{tr}(B)\)</span></li>
-<li><span class="math inline">\(\operatorname{tr}(ABC) = \operatorname{tr}(CAB) = \operatorname{tr}(BCA)\)</span></li>
-<li><span class="math inline">\(\operatorname{tr}|a\rangle\langle b| = \langle b|a\rangle\)</span></li>
-<li><span class="math inline">\(\operatorname{tr}(A|a\rangle\langle b|) = \langle b|A|a\rangle = \operatorname{tr}(|a\rangle\langle b|A)\)</span></li>
+<li><eq env="math">\operatorname{tr}(\alpha A+\beta B) = \alpha \operatorname{tr}(A)+\beta\operatorname{tr}(B)</eq></li>
+<li><eq env="math">\operatorname{tr}(ABC) = \operatorname{tr}(CAB) = \operatorname{tr}(BCA)</eq></li>
+<li><eq env="math">\operatorname{tr}|a\rangle\langle b| = \langle b|a\rangle</eq></li>
+<li><eq env="math">\operatorname{tr}(A|a\rangle\langle b|) = \langle b|A|a\rangle = \operatorname{tr}(|a\rangle\langle b|A)</eq></li>
 </ul>
 
 </div>
 </div>
 <div class="footnotes">
 <hr />
-<ol start="4">
-<li id="fn4"><p>To explain why we care so much about polynomials would be the subject of a whole nother book, but one important reason (of the <em>many</em>!), for both analysts and geometers alike, is the <a href="https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem"><strong>Weierstrass Approximation Theorem</strong></a>.<a href="01-PreliminaresMatematicas.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p>The more common notation in mathematics is <span class="math inline">\(\bar{z}\)</span> instead of <span class="math inline">\(z^\star\)</span>, but physicists tend to like the latter.<a href="01-PreliminaresMatematicas.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p><strong>Exercise.</strong> Prove this!<a href="01-PreliminaresMatematicas.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>If you don’t know about Taylor series, then feel free to just skim this part, but make sure to read the punchline!<a href="01-PreliminaresMatematicas.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>It is very important to point out that this “proof” is not rigorous or formal — you need to be very <em>very</em> careful when rearranging infinite sums! However, this proof <em>can be made rigorous</em> by using some real analysis.<a href="01-PreliminaresMatematicas.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>Note that we have not really given you enough information in this section to be able to solve all these exercises, but that is intentional! Sometimes we like to ask questions and not answer them, with the hope that you will enjoy getting to do some research by yourself.<a href="01-PreliminaresMatematicas.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>Showing that this definition is independent of the basis that we choose is a “fun” linear algebra exercise.<a href="01-PreliminaresMatematicas.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>The question of <em>how</em> exactly we construct this associated space is a subtle one in the case of arbitrary physical systems, but we shall see that this is relatively straightforward when working with the types of systems that we consider in this book.<a href="01-PreliminaresMatematicas.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>“Is this a <span class="math inline">\(\dagger\)</span> which I see before me…”<a href="01-PreliminaresMatematicas.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>In mathematics texts this operation is often denoted by <span class="math inline">\({}^\star\)</span> rather than <span class="math inline">\({}^\dagger\)</span>, but we reserve the former for complex conjugation <em>without</em> matrix transposition. Note, however, that scalars can be thought of as <span class="math inline">\((1\times1)\)</span> matrices, and in this special case we have that <span class="math inline">\(\dagger=\star\)</span>.<a href="01-PreliminaresMatematicas.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>That is, consider sets of vectors <span class="math inline">\(|e_i\rangle\)</span> such that <span class="math inline">\(\langle e_i|e_j\rangle=\delta_{ij}\)</span> (where the <strong>Kronecker delta</strong> <span class="math inline">\(\delta_{ij}\)</span> is <span class="math inline">\(0\)</span> if <span class="math inline">\(i\neq j\)</span>, and <span class="math inline">\(1\)</span> if <span class="math inline">\(i=j\)</span>.), and then pick any of the largest such sets (which must exist, since we assume our vector spaces to be finite dimensional).<a href="01-PreliminaresMatematicas.html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>This is an <em>axiom</em>, justified by experimental evidence, and also by some sort of mathematical intuition. So, in this book, we take this as a <em>fact</em> that we do not question. It is, however, very interesting to question it: <em>why should we assume this to be true?</em><a href="01-PreliminaresMatematicas.html#fnref15" class="footnote-back">↩︎</a></p></li>
-<li id="fn16"><p>You can prove this for an <span class="math inline">\((n\times n)\)</span> matrix <span class="math inline">\(A\)</span> by considering the set <span class="math inline">\(\{|v\rangle,A|v\rangle,A^2|v\rangle,\ldots,A^n|v\rangle\}\)</span> of vectors in <span class="math inline">\(\mathbb{C}^n\)</span>. Since this has <span class="math inline">\(n+1\)</span> elements, it must be linearly <em>dependent</em>, and so (after some lengthy algebra) we can construct an eigenpair.<a href="01-PreliminaresMatematicas.html#fnref16" class="footnote-back">↩︎</a></p></li>
-<li id="fn17"><p>Not to be confused with “completeness” in the sense of Hilbert spaces.<a href="01-PreliminaresMatematicas.html#fnref17" class="footnote-back">↩︎</a></p></li>
-<li id="fn18"><p>Note that “cyclic” does not mean the same thing as “permutation invariant”! It is <em>not</em> true in general that <span class="math inline">\(\operatorname{tr}(ABC)=\operatorname{tr}(CBA)\)</span>, but only that <span class="math inline">\(\operatorname{tr}(ABC)=\operatorname{tr}(BCA)=\operatorname{tr}(CAB)\)</span>, i.e. we can only <em>cyclically</em> permute the operators.<a href="01-PreliminaresMatematicas.html#fnref18" class="footnote-back">↩︎</a></p></li>
+<ol start="3">
+<li id="fn3"><p>To explain why we care so much about polynomials would be the subject of a whole nother book, but one important reason (of the <em>many</em>!), for both analysts and geometers alike, is the <a href="https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem"><strong>Weierstrass Approximation Theorem</strong></a>.<a href="01-PreliminaresMatematicas.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>The more common notation in mathematics is <eq env="math">\bar{z}</eq> instead of <eq env="math">z^\star</eq>, but physicists tend to like the latter.<a href="01-PreliminaresMatematicas.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p><strong>Exercise.</strong> Prove this!<a href="01-PreliminaresMatematicas.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>If you don’t know about Taylor series, then feel free to just skim this part, but make sure to read the punchline!<a href="01-PreliminaresMatematicas.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>It is very important to point out that this “proof” is not rigorous or formal — you need to be very <em>very</em> careful when rearranging infinite sums! However, this proof <em>can be made rigorous</em> by using some real analysis.<a href="01-PreliminaresMatematicas.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Note that we have not really given you enough information in this section to be able to solve all these exercises, but that is intentional! Sometimes we like to ask questions and not answer them, with the hope that you will enjoy getting to do some research by yourself.<a href="01-PreliminaresMatematicas.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>Showing that this definition is independent of the basis that we choose is a “fun” linear algebra exercise.<a href="01-PreliminaresMatematicas.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>The question of <em>how</em> exactly we construct this associated space is a subtle one in the case of arbitrary physical systems, but we shall see that this is relatively straightforward when working with the types of systems that we consider in this book.<a href="01-PreliminaresMatematicas.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>“Is this a <eq env="math">\dagger</eq> which I see before me…”<a href="01-PreliminaresMatematicas.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>In mathematics texts this operation is often denoted by <eq env="math">{}^\star</eq> rather than <eq env="math">{}^\dagger</eq>, but we reserve the former for complex conjugation <em>without</em> matrix transposition. Note, however, that scalars can be thought of as <eq env="math">(1\times1)</eq> matrices, and in this special case we have that <eq env="math">\dagger=\star</eq>.<a href="01-PreliminaresMatematicas.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>That is, consider sets of vectors <eq env="math">|e_i\rangle</eq> such that <eq env="math">\langle e_i|e_j\rangle=\delta_{ij}</eq> (where the <strong>Kronecker delta</strong> <eq env="math">\delta_{ij}</eq> is <eq env="math">0</eq> if <eq env="math">i\neq j</eq>, and <eq env="math">1</eq> if <eq env="math">i=j</eq>.), and then pick any of the largest such sets (which must exist, since we assume our vector spaces to be finite dimensional).<a href="01-PreliminaresMatematicas.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>This is an <em>axiom</em>, justified by experimental evidence, and also by some sort of mathematical intuition. So, in this book, we take this as a <em>fact</em> that we do not question. It is, however, very interesting to question it: <em>why should we assume this to be true?</em><a href="01-PreliminaresMatematicas.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>You can prove this for an <eq env="math">(n\times n)</eq> matrix <eq env="math">A</eq> by considering the set <eq env="math">\{|v\rangle,A|v\rangle,A^2|v\rangle,\ldots,A^n|v\rangle\}</eq> of vectors in <eq env="math">\mathbb{C}^n</eq>. Since this has <eq env="math">n+1</eq> elements, it must be linearly <em>dependent</em>, and so (after some lengthy algebra) we can construct an eigenpair.<a href="01-PreliminaresMatematicas.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>Not to be confused with “completeness” in the sense of Hilbert spaces.<a href="01-PreliminaresMatematicas.html#fnref16" class="footnote-back">↩︎</a></p></li>
+<li id="fn17"><p>Note that “cyclic” does not mean the same thing as “permutation invariant”! It is <em>not</em> true in general that <eq env="math">\operatorname{tr}(ABC)=\operatorname{tr}(CBA)</eq>, but only that <eq env="math">\operatorname{tr}(ABC)=\operatorname{tr}(BCA)=\operatorname{tr}(CAB)</eq>, i.e. we can only <em>cyclically</em> permute the operators.<a href="01-PreliminaresMatematicas.html#fnref17" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <!-- KaTeX for maths rendering -->
@@ -919,8 +919,8 @@ gitbook.start({
 "weibo": false,
 "instapaper": true,
 "vk": false,
-"whatsapp": true,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": {}
 },
 "fontsettings": {
 "theme": "white",
@@ -952,20 +952,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

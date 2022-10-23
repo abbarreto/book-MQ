@@ -1,9 +1,9 @@
 bookdown::gitbook:
-  mathjax: ["web/MathJax2KaTeX.js"]
+  mathjax: null
   pandoc_args: ["--gladtex"]
-  css: ["./web/style.css", "https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css", "./web/lite-yt-embed.css"]
+  css: ["./web/gitbook-custom.css", "https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css", "./web/lite-yt-embed.css"]
   includes:
-      after_body: ["./web/scripts.html"]
+    after_body: ["./web/scripts.html"]
   split_by: rmd
   config:
     toc:
@@ -25,7 +25,7 @@ bookdown::gitbook:
       weibo: no
       instapaper: yes
       vk: no
-      whatsapp: yes
+      whatsapp: no
       all: []
     info: no
 bookdown::pdf_book:

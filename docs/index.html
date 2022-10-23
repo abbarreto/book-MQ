@@ -140,7 +140,7 @@ div.csl-indent {
 }
 </style>
 
-<link rel="stylesheet" href="web/style.css" type="text/css" />
+<link rel="stylesheet" href="web/gitbook-custom.css" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" type="text/css" />
 <link rel="stylesheet" href="web/lite-yt-embed.css" type="text/css" />
 </head>
@@ -289,13 +289,14 @@ These are <em>not at all</em> necessary reading, but are just there to provide t
 <ul>
 <li><i class="fa fa-align-justify"></i> — Esconder/mostrar a tabela de conteúdos;</li>
 <li><i class="fa fa-search"></i> — Buscar dentro do texto do <em>e-book</em>;</li>
-<li><i class="fa fa-font"></i> — Change font size, font face, and toggle dark mode</li>
-<li><i class="fa fa-code"></i> — View the source file of the current chapter on GitHub<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a></li>
-<li><i class="fa fa-file-pdf-o"></i> — Open the PDF version of the book in a new tab</li>
+<li><i class="fa fa-font"></i> — Mudar o tamanho da tamanho e tipo da fonte, e escolher o modo escuro;</li>
+<li><i class="fa fa-file-pdf-o"></i> — Abrir a versão <em>PDF</em> do <em>e-book</em> em uma nova janela.</li>
 </ul>
-<p>The online version also has <a href="https://www.youtube.com/playlist?list=PLkespgaZN4gmu0nWNmfMflVRqw0VPkCGH">the accompanying lecture videos</a> embedded from YouTube.
-These videos are hidden by default, but can be shown by clicking on the title next to the <i class="fa fa-video-camera"></i> icon, wherever one appears.
-The order of the videos generally differs from that of the written notes, so we have made our best efforts to include them in an order which makes sense relative to the chapters here.
+<p>Os vídeos são escondidos por padrão, mas podem ser mostrados clicando sobre os títulos próximos ao ícone <i class="fa fa-video-camera"></i> (veja o exemplo abaixo).</p>
+<div class="video" title="Computação Quântica | Nerdologia Tech" data-videoid="fLN1zQOPT2E">
+
+</div>
+<p>The order of the videos generally differs from that of the written notes, so we have made our best efforts to include them in an order which makes sense relative to the chapters here.
 For those wishing to really get familiar with this subject, we recommend separately watching the lecture videos following the order in <a href="https://www.youtube.com/playlist?list=PLkespgaZN4gmu0nWNmfMflVRqw0VPkCGH">the linked playlist</a>.</p>
 <p>You will also see the <i class="fa fa-search-plus"></i> icon in certain places.
 Clicking on these will display one of the technical asides mentioned in the introduction.</p>
@@ -329,7 +330,6 @@ Clicking on these will display one of the technical asides mentioned in the intr
 <ol start="1">
 <li id="fn1"><p>e-mail: <a href="mailto:adriano.barreto@caxias.ifrs.edu.br" class="email">adriano.barreto@caxias.ifrs.edu.br</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
 <li id="fn2"><p>However, since mathematicians were involved in the writing of this book, we have not been able to resist <em>some</em> digressions here and there.<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
-<li id="fn3"><p>The GitHub-savvy of you can use this to create issues pointing out typos, mistakes, etc.<a href="index.html#fnref3" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <!-- KaTeX for maths rendering -->
@@ -483,8 +483,8 @@ gitbook.start({
 "weibo": false,
 "instapaper": true,
 "vk": false,
-"whatsapp": true,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": {}
 },
 "fontsettings": {
 "theme": "white",
@@ -516,20 +516,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

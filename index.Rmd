@@ -1,4 +1,5 @@
 ---
+published: false
 title: "Noções básicas de computação quântica"
 author:
   - name: "[Adriano B. Barreto](http://lattes.cnpq.br/3242250540541623)^[e-mail: adriano.barreto@caxias.ifrs.edu.br]"
@@ -66,14 +67,13 @@ Este *e-book* tem algumas funcionalidades únicas que não estão disponíveis n
 
 -   <i class="fa fa-align-justify"></i> --- Esconder/mostrar a tabela de conteúdos;
 -   <i class="fa fa-search"></i> --- Buscar dentro do texto do *e-book*;
--   <i class="fa fa-font"></i> --- Change font size, font face, and toggle dark mode
--   <i class="fa fa-code"></i> --- View the source file of the current chapter on GitHub[^index-2]
--   <i class="fa fa-file-pdf-o"></i> --- Open the PDF version of the book in a new tab
+-   <i class="fa fa-font"></i> --- Mudar o tamanho da tamanho e tipo da fonte, e escolher o modo escuro;
+-   <i class="fa fa-file-pdf-o"></i> --- Abrir a versão *PDF* do *e-book* em uma nova janela.
 
-[^index-2]: The GitHub-savvy of you can use this to create issues pointing out typos, mistakes, etc.
+Os vídeos são escondidos por padrão, mas podem ser mostrados clicando sobre os títulos próximos ao ícone <i class="fa fa-video-camera"></i> (veja o exemplo abaixo).
 
-The online version also has [the accompanying lecture videos](https://www.youtube.com/playlist?list=PLkespgaZN4gmu0nWNmfMflVRqw0VPkCGH) embedded from YouTube.
-These videos are hidden by default, but can be shown by clicking on the title next to the <i class="fa fa-video-camera"></i> icon, wherever one appears.
+<div class="video" title="Computação Quântica | Nerdologia Tech" data-videoid="fLN1zQOPT2E"></div>
+
 The order of the videos generally differs from that of the written notes, so we have made our best efforts to include them in an order which makes sense relative to the chapters here.
 For those wishing to really get familiar with this subject, we recommend separately watching the lecture videos following the order in [the linked playlist](https://www.youtube.com/playlist?list=PLkespgaZN4gmu0nWNmfMflVRqw0VPkCGH).
 

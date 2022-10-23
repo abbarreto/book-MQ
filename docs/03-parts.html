@@ -140,7 +140,7 @@ div.csl-indent {
 }
 </style>
 
-<link rel="stylesheet" href="web/style.css" type="text/css" />
+<link rel="stylesheet" href="web/gitbook-custom.css" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" type="text/css" />
 <link rel="stylesheet" href="web/lite-yt-embed.css" type="text/css" />
 </head>
@@ -398,8 +398,8 @@ gitbook.start({
 "weibo": false,
 "instapaper": true,
 "vk": false,
-"whatsapp": true,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": {}
 },
 "fontsettings": {
 "theme": "white",
@@ -431,20 +431,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

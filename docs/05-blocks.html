@@ -140,7 +140,7 @@ div.csl-indent {
 }
 </style>
 
-<link rel="stylesheet" href="web/style.css" type="text/css" />
+<link rel="stylesheet" href="web/gitbook-custom.css" type="text/css" />
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.1/dist/katex.min.css" type="text/css" />
 <link rel="stylesheet" href="web/lite-yt-embed.css" type="text/css" />
 </head>
@@ -244,19 +244,16 @@ div.csl-indent {
 <div id="equations" class="section level2 hasAnchor" number="8.1">
 <h2><span class="header-section-number">8.1</span> Equations<a href="05-blocks.html#equations" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Here is an equation.</p>
-<p><span class="math display" id="eq:binom">\[\begin{equation}
-  f\left(k\right) = \binom{n}{k} p^k\left(1-p\right)^{n-k}
-  \tag{8.1}
-\end{equation}\]</span></p>
-<p>You may refer to using <code>\@ref(eq:binom)</code>, like see Equation <a href="05-blocks.html#eq:binom">(8.1)</a>.</p>
+<p></p>
+<p>You may refer to using <code>\@ref(eq:binom)</code>, like see Equation <a href="#eq:binom">(<strong>??</strong>)</a>.</p>
 </div>
 <div id="theorems-and-proofs" class="section level2 hasAnchor" number="8.2">
 <h2><span class="header-section-number">8.2</span> Theorems and proofs<a href="05-blocks.html#theorems-and-proofs" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Labeled theorems can be referenced in text using <code>\@ref(thm:tri)</code>, for example, check out this smart theorem <a href="05-blocks.html#thm:tri">8.1</a>.</p>
 <div class="theorem">
-<p><span id="thm:tri" class="theorem"><strong>Theorem 8.1  </strong></span>For a right triangle, if <span class="math inline">\(c\)</span> denotes the <em>length</em> of the hypotenuse
-and <span class="math inline">\(a\)</span> and <span class="math inline">\(b\)</span> denote the lengths of the <strong>other</strong> two sides, we have
-<span class="math display">\[a^2 + b^2 = c^2\]</span></p>
+<p><span id="thm:tri" class="theorem"><strong>Theorem 8.1  </strong></span>For a right triangle, if <eq env="math">c</eq> denotes the <em>length</em> of the hypotenuse
+and <eq env="math">a</eq> and <eq env="math">b</eq> denote the lengths of the <strong>other</strong> two sides, we have
+<eq env="displaymath">a^2 + b^2 = c^2</eq></p>
 </div>
 <p>Read more here <a href="https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html" class="uri">https://bookdown.org/yihui/bookdown/markdown-extensions-by-bookdown.html</a>.</p>
 </div>
@@ -417,8 +414,8 @@ gitbook.start({
 "weibo": false,
 "instapaper": true,
 "vk": false,
-"whatsapp": true,
-"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+"whatsapp": false,
+"all": {}
 },
 "fontsettings": {
 "theme": "white",
@@ -450,20 +447,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

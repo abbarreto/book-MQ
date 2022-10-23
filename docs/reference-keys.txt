@@ -1,6 +1,5 @@
 fig:nice-fig
 tab:nice-tab
-eq:binom
 thm:tri
 preliminares-matematicas
 complex-numbers
