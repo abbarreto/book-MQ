@@ -74,19 +74,15 @@ Os vídeos são escondidos por padrão, mas podem ser mostrados clicando sobre o
 
 <div class="video" title="Computação Quântica | Nerdologia Tech" data-videoid="fLN1zQOPT2E"></div>
 
-The order of the videos generally differs from that of the written notes, so we have made our best efforts to include them in an order which makes sense relative to the chapters here.
-For those wishing to really get familiar with this subject, we recommend separately watching the lecture videos following the order in [the linked playlist](https://www.youtube.com/playlist?list=PLkespgaZN4gmu0nWNmfMflVRqw0VPkCGH).
+Haverá, também, o ícone <i class="fa fa-search-plus"></i> em alguns lugares. Ao clicar nele será exibido um apêndice técnico que servirá para definir ou conceituar algo de forma mais precisa e/ou rigorosa.
 
-You will also see the <i class="fa fa-search-plus"></i> icon in certain places.
-Clicking on these will display one of the technical asides mentioned in the introduction.
+Se um *link* tem o ícone <a class="external-link"></a> depois dele, então ele leva para uma página **fora** deste *e-book*; caso contrário ele será um *link* **interno** para outra seção dentro deste *e-book*.
 
-If a hyperlink has the <a class="external-link"></a> icon after it, then it points to a webpage *outside* this book; otherwise it is an *internal* link to another section within this book.
+Também há algumas teclas de atalho:
 
-There are also some keyboard shortcuts:
-
--   jump between sections with `←` and `→`
--   toggle the table of contents with `s`
--   open the search bar with `f`, step through results with `Enter`, and stop searching with `Esc`
+-   Passe entre seções com `←` and `→`
+-   Alterne a exibição da tabela de conteúdos com `s`
+-   Abra a barra de busca com `f`, passe entre os resultados coom `Enter`, e interrompa a busca com `Esc`
 
 
 ## Agradecimentos {.unnumbered}
