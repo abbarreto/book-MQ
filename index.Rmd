@@ -29,36 +29,20 @@ editor_options:
 Sou o [Adriano Braga Barreto](http://lattes.cnpq.br/3242250540541623), **professor de física** no *Campus* Caxias do Sul do _Instituto Federal do Rio Grande do Sul_ (IFRS). Tenho **doutorado** pela _Universidade Federal da Paraíba_ (UFPB), **mestrado** pela _Universidade Federal de Itajubá_ e **licenciatura em física** pelo _Instituto Federal do Ceará_ (IFCE). Minha formação tem sido em **física teórica**, mais especificamente nas áreas de _gravitação e cosmologia_. Atualmente tenho me interessado pela pesquisa científica na interface **Teoria da Relatividade Geral/Mecânica Quântica** (RG/MQ), estudando os efeitos relativisticos e gravitacionais em sistemas quânticos, bem como a simulação destes fenômenos em experimentos de **Óptica Quântica**.
 
 
-## Objetivos e público-alvo {-}
+## Objetivos {-}
 
-In this series of lectures you will learn how inherently quantum phenomena, such as quantum interference and quantum entanglement, can make information processing more efficient and more secure, even in the presence of noise.
+Computação quântica é um campo importante na interseção entre física e ciências da computação. Neste curso estudaremos o papel de três conceitos-chave para a área, a saber:
 
-There are many introductions to quantum information science, so it seems like a good idea to start with an explanation of why this particular one exists.
-When learning such a subject, located somewhere in between mathematics, physics, and computer science, there are many possible approaches, with one main factor being "how far along the informal--formal scale do I want to be?".
-In these notes we take the following philosophy: it can be both interesting and fun to cover lots of ground quickly and see as much as possible on a surface level, but it's also good to know that there is a lot of important stuff that you'll miss by doing this.
-In practice, this means that we don't worry to much about high-level mathematics.
-That is not to say that we do not use mathematics "properly" --- you'll find a perfectly formal treatment of e.g. quantum channels via completely positive trace-preserving maps in the language of linear algebra --- but rather than putting too many footnotes with technical caveats and explanations throughout the main text, we opt to collect them all together into one big "warning" here:
+-   [Superposição quântica](https://en.wikipedia.org/wiki/Quantum_superposition);
+-   [Medida quântica](https://en.wikipedia.org/wiki/Measurement_in_quantum_mechanics);
+-   [Emaranhamento quântico](https://en.wikipedia.org/wiki/Quantum_entanglement).
 
-> *The mathematics underlying quantum theory is a vast and in-depth subject, most of which we will never touch upon, some of which we will only allude to, and the rest of which we will cover only in the level of detail necessary to our overarching goal*.[^index-1]
-> "What", then, "is the overarching goal?" one might ask.
-> Our answer is this:
+O **objetivo** deste curso é servir de ponte para que interessados no tema da computação quântica, mas que não possuem uma formação formal em física, possam acessar aos recursos disponíveis para aprender, pesquisar e desenvolver trabalhos nesta área.
 
-[^index-1]: However, since mathematicians were involved in the writing of this book, we have not been able to resist *some* digressions here and there.
 
-> *To help an eager reader understand what quantum information science is all about, and for them to realise which facets of it they would like to study in more detail*.
-> But this does not mean that our treatment is cursory!
-> In fact, by the end of this book you will have learnt a fair bit more than what might usually be covered in a standard quantum information science course that you would find in a mathematics masters degree, for example.
+## Publico-alvo {-}
 
-The interdisciplinary nature of this topic, combined with the diverse backgrounds that different readers have, means that some may find certain chapters easy, while others find the same ones difficult --- so if things seem hard to you, then don't worry: the next chapter might feel much easier!
-The only real prerequisites are a working knowledge of complex numbers and vectors and matrices; some previous exposure to elementary probability theory and Dirac bra-ket notation (for example) would be helpful, but we provide crash-course introductions to some topics like these at the end of this chapter.
-A basic knowledge of quantum mechanics (especially in the simple context of finite dimensional state spaces, e.g. state vectors, composite systems, unitary matrices, Born rule for quantum measurements) and some ideas from classical theoretical computer science (complexity theory, algorithms) would be helpful, but is *not at all* essential.
 
-Of course, even if you aren't familiar with the formal mathematics, then that shouldn't stop you from reading this book if you want to.
-You might be surprised at how much you can [black box](https://en.wikipedia.org/wiki/Black_box) the bits that you don't understand!
-The caveat stands, however, that, to *really* get to grips with this subject, at least some knowledge of maths is necessary --- but this is not a bad thing!
-
-Finally, throughout this text you will find some technical asides (marked with the <i class="fa fa-search-plus"></i> icon).
-These are *not at all* necessary reading, but are just there to provide the exceptionally eager reader (or perhaps those with a more formal mathematical background) with some extra context, as well as some pointers towards further reading.
 
 
 ## Usando este e-book {.unnumbered}
@@ -80,7 +64,7 @@ Se um *link* tem o ícone <a class="external-link"></a> depois dele, então ele 
 
 Também há algumas teclas de atalho:
 
--   Passe entre seções com `←` and `→`
+-   Passe entre os capítulos com `←` and `→`
 -   Alterne a exibição da tabela de conteúdos com `s`
 -   Abra a barra de busca com `f`, passe entre os resultados coom `Enter`, e interrompa a busca com `Esc`
 

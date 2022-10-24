@@ -52,70 +52,6 @@
 <script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
 
 
-<style type="text/css">
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { color: #008000; } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { color: #008000; font-weight: bold; } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-</style>
 
 <style type="text/css">
 /* Used with Pandoc 2.11+ new --citeproc when CSL is used */
@@ -161,7 +97,8 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-mim"><i class="fa fa-check"></i>Sobre mim</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos-e-público-alvo"><i class="fa fa-check"></i>Objetivos e público-alvo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#publico-alvo"><i class="fa fa-check"></i>Publico-alvo</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#usando-este-e-book"><i class="fa fa-check"></i>Usando este e-book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
 </ul></li>
@@ -245,7 +182,7 @@ div.csl-indent {
 <address class="author_afil">
 Instituto Federal do Rio Grande do Sul — Campus Caxias do Sul<br>
 </address>
-<p class="date"><em>Última atualização: 23 de outubro de 2022 <a href="https://github.com/abbarreto/book-MQ/commits/main">(histórico de mudanças)</a></em></p>
+<p class="date"><em>Última atualização: 24 de outubro de 2022 <a href="https://github.com/abbarreto/book-MQ/commits/main">(histórico de mudanças)</a></em></p>
 </div>
 <div id="prefácio" class="section level1 unnumbered hasAnchor">
 <h1>Prefácio<a href="index.html#prefácio" class="anchor-section" aria-label="Anchor link to header"></a></h1>
@@ -256,32 +193,18 @@ Instituto Federal do Rio Grande do Sul — Campus Caxias do Sul<br>
 <h2>Sobre mim<a href="index.html#sobre-mim" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Sou o <a href="http://lattes.cnpq.br/3242250540541623">Adriano Braga Barreto</a>, <strong>professor de física</strong> no <em>Campus</em> Caxias do Sul do <em>Instituto Federal do Rio Grande do Sul</em> (IFRS). Tenho <strong>doutorado</strong> pela <em>Universidade Federal da Paraíba</em> (UFPB), <strong>mestrado</strong> pela <em>Universidade Federal de Itajubá</em> e <strong>licenciatura em física</strong> pelo <em>Instituto Federal do Ceará</em> (IFCE). Minha formação tem sido em <strong>física teórica</strong>, mais especificamente nas áreas de <em>gravitação e cosmologia</em>. Atualmente tenho me interessado pela pesquisa científica na interface <strong>Teoria da Relatividade Geral/Mecânica Quântica</strong> (RG/MQ), estudando os efeitos relativisticos e gravitacionais em sistemas quânticos, bem como a simulação destes fenômenos em experimentos de <strong>Óptica Quântica</strong>.</p>
 </div>
-<div id="objetivos-e-público-alvo" class="section level2 unnumbered hasAnchor">
-<h2>Objetivos e público-alvo<a href="index.html#objetivos-e-público-alvo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>In this series of lectures you will learn how inherently quantum phenomena, such as quantum interference and quantum entanglement, can make information processing more efficient and more secure, even in the presence of noise.</p>
-<p>There are many introductions to quantum information science, so it seems like a good idea to start with an explanation of why this particular one exists.
-When learning such a subject, located somewhere in between mathematics, physics, and computer science, there are many possible approaches, with one main factor being “how far along the informal–formal scale do I want to be?”.
-In these notes we take the following philosophy: it can be both interesting and fun to cover lots of ground quickly and see as much as possible on a surface level, but it’s also good to know that there is a lot of important stuff that you’ll miss by doing this.
-In practice, this means that we don’t worry to much about high-level mathematics.
-That is not to say that we do not use mathematics “properly” — you’ll find a perfectly formal treatment of e.g. quantum channels via completely positive trace-preserving maps in the language of linear algebra — but rather than putting too many footnotes with technical caveats and explanations throughout the main text, we opt to collect them all together into one big “warning” here:</p>
-<blockquote>
-<p><em>The mathematics underlying quantum theory is a vast and in-depth subject, most of which we will never touch upon, some of which we will only allude to, and the rest of which we will cover only in the level of detail necessary to our overarching goal</em>.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
-“What”, then, “is the overarching goal?” one might ask.
-Our answer is this:</p>
-</blockquote>
-<blockquote>
-<p><em>To help an eager reader understand what quantum information science is all about, and for them to realise which facets of it they would like to study in more detail</em>.
-But this does not mean that our treatment is cursory!
-In fact, by the end of this book you will have learnt a fair bit more than what might usually be covered in a standard quantum information science course that you would find in a mathematics masters degree, for example.</p>
-</blockquote>
-<p>The interdisciplinary nature of this topic, combined with the diverse backgrounds that different readers have, means that some may find certain chapters easy, while others find the same ones difficult — so if things seem hard to you, then don’t worry: the next chapter might feel much easier!
-The only real prerequisites are a working knowledge of complex numbers and vectors and matrices; some previous exposure to elementary probability theory and Dirac bra-ket notation (for example) would be helpful, but we provide crash-course introductions to some topics like these at the end of this chapter.
-A basic knowledge of quantum mechanics (especially in the simple context of finite dimensional state spaces, e.g. state vectors, composite systems, unitary matrices, Born rule for quantum measurements) and some ideas from classical theoretical computer science (complexity theory, algorithms) would be helpful, but is <em>not at all</em> essential.</p>
-<p>Of course, even if you aren’t familiar with the formal mathematics, then that shouldn’t stop you from reading this book if you want to.
-You might be surprised at how much you can <a href="https://en.wikipedia.org/wiki/Black_box">black box</a> the bits that you don’t understand!
-The caveat stands, however, that, to <em>really</em> get to grips with this subject, at least some knowledge of maths is necessary — but this is not a bad thing!</p>
-<p>Finally, throughout this text you will find some technical asides (marked with the <i class="fa fa-search-plus"></i> icon).
-These are <em>not at all</em> necessary reading, but are just there to provide the exceptionally eager reader (or perhaps those with a more formal mathematical background) with some extra context, as well as some pointers towards further reading.</p>
+<div id="objetivos" class="section level2 unnumbered hasAnchor">
+<h2>Objetivos<a href="index.html#objetivos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>Computação quântica é um campo importante na interseção entre física e ciências da computação. Neste curso estudaremos o papel de três conceitos-chave para a área, a saber:</p>
+<ul>
+<li><a href="https://en.wikipedia.org/wiki/Quantum_superposition">Superposição quântica</a>;</li>
+<li><a href="https://en.wikipedia.org/wiki/Measurement_in_quantum_mechanics">Medida quântica</a>;</li>
+<li><a href="https://en.wikipedia.org/wiki/Quantum_entanglement">Emaranhamento quântico</a>.</li>
+</ul>
+<p>O <strong>objetivo</strong> deste curso é servir de ponte para que interessados no tema da computação quântica, mas que não possuem uma formação formal em física, possam acessar aos recursos disponíveis para aprender, pesquisar e desenvolver trabalhos nesta área.</p>
+</div>
+<div id="publico-alvo" class="section level2 unnumbered hasAnchor">
+<h2>Publico-alvo<a href="index.html#publico-alvo" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 </div>
 <div id="usando-este-e-book" class="section level2 unnumbered hasAnchor">
 <h2>Usando este e-book<a href="index.html#usando-este-e-book" class="anchor-section" aria-label="Anchor link to header"></a></h2>
@@ -300,7 +223,7 @@ These are <em>not at all</em> necessary reading, but are just there to provide t
 <p>Se um <em>link</em> tem o ícone <a class="external-link"></a> depois dele, então ele leva para uma página <strong>fora</strong> deste <em>e-book</em>; caso contrário ele será um <em>link</em> <strong>interno</strong> para outra seção dentro deste <em>e-book</em>.</p>
 <p>Também há algumas teclas de atalho:</p>
 <ul>
-<li>Passe entre seções com <code>←</code> and <code>→</code></li>
+<li>Passe entre os capítulos com <code>←</code> and <code>→</code></li>
 <li>Alterne a exibição da tabela de conteúdos com <code>s</code></li>
 <li>Abra a barra de busca com <code>f</code>, passe entre os resultados coom <code>Enter</code>, e interrompa a busca com <code>Esc</code></li>
 </ul>
@@ -315,7 +238,6 @@ These are <em>not at all</em> necessary reading, but are just there to provide t
 
 
 
-</div>
 <h3>Referências<a href="07-references.html#referências" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references csl-bib-body hanging-indent">
 <div id="ref-R-bookdown" class="csl-entry">
@@ -326,7 +248,6 @@ These are <em>not at all</em> necessary reading, but are just there to provide t
 <hr />
 <ol start="1">
 <li id="fn1"><p>e-mail: <a href="mailto:adriano.barreto@caxias.ifrs.edu.br" class="email">adriano.barreto@caxias.ifrs.edu.br</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
-<li id="fn2"><p>However, since mathematicians were involved in the writing of this book, we have not been able to resist <em>some</em> digressions here and there.<a href="index.html#fnref2" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <!-- KaTeX for maths rendering -->

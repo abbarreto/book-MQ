@@ -14,4 +14,4 @@ Note that the `.bib` files need to be listed in the index.Rmd with the YAML `bib
 
 The RStudio Visual Markdown Editor can also make it easier to insert citations: <https://rstudio.github.io/visual-markdown-editing/#/citations>
 
-Teste de citação @laforest-15, @zubairy-20, @perry-19, @canabarro2022
+Teste de citação @laforest-15, @zubairy-20, @perry-19, @ekert-22, @loceff-15
