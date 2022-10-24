@@ -161,7 +161,8 @@ div.csl-indent {
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Prefácio</a>
 <ul>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#sobre-mim"><i class="fa fa-check"></i>Sobre mim</a></li>
-<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos-e-público-alvo"><i class="fa fa-check"></i>Objetivos e público-alvo</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#objetivos"><i class="fa fa-check"></i>Objetivos</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#publico-alvo"><i class="fa fa-check"></i>Publico-alvo</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#usando-este-e-book"><i class="fa fa-check"></i>Usando este e-book</a></li>
 <li class="chapter" data-level="" data-path="index.html"><a href="index.html#agradecimentos"><i class="fa fa-check"></i>Agradecimentos</a></li>
 </ul></li>
@@ -258,7 +259,7 @@ To include all of these (and simultaneously make sense of things like infinite s
 These form a field, just like the rationals, but now we don’t have any “gaps” in our number line.
 So what’s left to do?</p>
 <p>Well the reals have one big problem: they are not <strong>algebraically closed</strong>.
-That is, there exist polynomials with no roots, i.e. equations of the form <eq env="math">a_nx^n+a_{n-1}x^{n-1}+\ldots+a_1x+a_0=0</eq> (where the <eq env="math">a_i</eq> are real numbers) that have no solutions.<a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a>
+That is, there exist polynomials with no roots, i.e. equations of the form <eq env="math">a_nx^n+a_{n-1}x^{n-1}+\ldots+a_1x+a_0=0</eq> (where the <eq env="math">a_i</eq> are real numbers) that have no solutions.<a href="#fn2" class="footnote-ref" id="fnref2"><sup>2</sup></a>
 Somehow the most fundamental such example is the equation <eq env="math">x^2+1=0</eq>, which has no solutions, because the square of any real number must be non-negative, and so <eq env="math">\sqrt{-1}\not\in\mathbb{R}</eq>.</p>
 <p>It turns out that if we just throw in this one extra number <eq env="math">i\mathrel{=}\sqrt{-1}</eq> to <eq env="math">\mathbb{R}</eq> then we can solve <em>any</em> polynomial — a theorem so important that it’s known as the <strong>fundamental theorem of algebra</strong>.
 We call the result of doing this the <strong>complex numbers</strong>, and denote them by <eq env="math">\mathbb{C}</eq>.</p>
@@ -287,7 +288,7 @@ Following the rules of the game, we can figure out what the product of two compl
   \\&amp;= \frac{x}{x^2+y^2}-i\frac{y}{x+2+y^2}
   \end{aligned}
 </eq></p>
-<p>This other complex number <eq env="math">x-iy</eq> that we used is somehow special because it is exactly the thing we needed to make the denominator real, so we give it a name: the <strong>complex conjugate</strong><a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> of a complex number <eq env="math">z=x+iy</eq> is the complex number <eq env="math">z^\star\mathrel{=}x-iy</eq>.
+<p>This other complex number <eq env="math">x-iy</eq> that we used is somehow special because it is exactly the thing we needed to make the denominator real, so we give it a name: the <strong>complex conjugate</strong><a href="#fn3" class="footnote-ref" id="fnref3"><sup>3</sup></a> of a complex number <eq env="math">z=x+iy</eq> is the complex number <eq env="math">z^\star\mathrel{=}x-iy</eq>.
 Geometrically, this is just the reflection of the vector <eq env="math">(x,y)\in\mathbb{R}^2</eq> in the <eq env="math">x</eq>-axis.
 The product <eq env="math">zz^\star=x^2+y^2</eq> is also important: you might recognise (from Pythagoras’ theorem) that <eq env="math">\sqrt{x^2+y^2}</eq> is exactly the length of the vector <eq env="math">(x,y)</eq>, and so we call the real number <eq env="math">|z|\mathrel{=}\sqrt{zz^\star}</eq> the <strong>modulus</strong> (or magnitude, norm, or absolute value).
 Note then that we can simply write <eq env="math">1/z=z^\star/|z|^2</eq>.</p>
@@ -309,7 +310,7 @@ Some trigonometry tells us that <eq env="math">\theta=\tan(y/x)</eq>, so we now 
 
 <p>Great!
 … but what’s the point of polar coordinates?
-Well, it turns out that they give us a geometric way of understanding multiplication: you can show<a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> that <eq env="math">(r,\theta)</eq> multiplied by <eq env="math">(r',\theta')</eq> is exactly <eq env="math">(rr',\theta+\theta')</eq>, which says that multiplication by a complex number <eq env="math">(r,\theta)</eq> is exactly a scaling by a factor of <eq env="math">r</eq> and a rotation by <eq env="math">\theta</eq>.
+Well, it turns out that they give us a geometric way of understanding multiplication: you can show<a href="#fn4" class="footnote-ref" id="fnref4"><sup>4</sup></a> that <eq env="math">(r,\theta)</eq> multiplied by <eq env="math">(r',\theta')</eq> is exactly <eq env="math">(rr',\theta+\theta')</eq>, which says that multiplication by a complex number <eq env="math">(r,\theta)</eq> is exactly a scaling by a factor of <eq env="math">r</eq> and a rotation by <eq env="math">\theta</eq>.
 This means that we can also easily find the multiplicative inverse of <eq env="math">(r,\theta)</eq>, since it’s just <eq env="math">(1/r,-\theta)</eq>.
 Finally, complex conjugation just means switching the sign of the angle: <eq env="math">(r,\theta)^\star=(r,-\theta)</eq>.</p>
 <p>There is one last ingredient that we should mention, which is the thing that really solidifies the relation between rectangular and polar coordinates.
@@ -318,7 +319,7 @@ Then we can avoid any ambiguity that might arise from using pairs of numbers —
 <p>Given polar coordinates <eq env="math">(r,\theta)</eq>, we know that this is equal to <eq env="math">(r\cos\theta,r\sin\theta)</eq> in rectangular coordinates.
 For simplicity, let’s first consider the case where <eq env="math">r=1</eq>.
 Then we can write <eq env="math">(1,\theta)</eq> as <eq env="math">\cos\theta+i\sin\theta</eq>.
-Using the <a href="https://en.wikipedia.org/wiki/Taylor_series"><strong>Taylor series</strong></a><a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> of <eq env="math">\sin</eq> and <eq env="math">\cos</eq>, we can rewrite this as
+Using the <a href="https://en.wikipedia.org/wiki/Taylor_series"><strong>Taylor series</strong></a><a href="#fn5" class="footnote-ref" id="fnref5"><sup>5</sup></a> of <eq env="math">\sin</eq> and <eq env="math">\cos</eq>, we can rewrite this as
 <eq env="displaymath">
   \begin{aligned}
     \cos\theta+i\sin\theta
@@ -333,7 +334,7 @@ Using the <a href="https://en.wikipedia.org/wiki/Taylor_series"><strong>Taylor s
   \end{aligned}
 </eq>
 where at the very end we use the Taylor expansion of the <a href="https://en.wikipedia.org/wiki/Exponential_function"><strong>exponential function</strong></a> <eq env="math">\exp(x)=e^x</eq>.</p>
-<p>We have just “proved”<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a> one of the most remarkable formulas in mathematics: <strong>Euler’s formula</strong>
+<p>We have just “proved”<a href="#fn6" class="footnote-ref" id="fnref6"><sup>6</sup></a> one of the most remarkable formulas in mathematics: <strong>Euler’s formula</strong>
 <eq env="displaymath">
   e^{i\theta} = \cos\theta+i\sin\theta
 </eq>
@@ -358,7 +359,7 @@ This is because it is very messy looking:
 </eq>
 and where <eq env="math">\operatorname{atan2}</eq> is the <a href="https://en.wikipedia.org/wiki/Atan2">2-argument arctangent function</a>.</p>
 </div>
-<p>You do not need to know everything about this whole story of algebraically closed fields and so on, but it helps to know the basics, so here are some exercises that should help you to become more familiar.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a></p>
+<p>You do not need to know everything about this whole story of algebraically closed fields and so on, but it helps to know the basics, so here are some exercises that should help you to become more familiar.<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a></p>
 <ol style="list-style-type: lower-alpha">
 <li>The set <eq env="math">\mathbb{Q}</eq> of rational numbers and the set <eq env="math">\mathbb{R}</eq> of real numbers are both fields, but the set <eq env="math">\mathbb{Z}</eq> of integers is not. Why not?</li>
 <li>Look up the formal statement of the fundamental theorem of algebra.</li>
@@ -410,7 +411,7 @@ As a maybe more familiar example, the set of binary strings of length <eq env="m
 These are often called <strong>ket</strong> vectors, or simply <strong>kets</strong>.
 (We will deal with “bras” in a moment).</p>
 <p>A <strong>basis</strong> in <eq env="math">V</eq> is a collection of vectors <eq env="math">|e_1\rangle,|e_2\rangle,\ldots,|e_n\rangle</eq> such that every vector <eq env="math">|v\rangle</eq> in <eq env="math">V</eq> can be written (in <em>exactly</em> one way) as a linear combination of the basis vectors: <eq env="math">|v\rangle=\sum_{i=1}^n v_i|e_i\rangle</eq>.
-The number of elements in a basis is called the <strong>dimension</strong> of <eq env="math">V</eq>.<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>
+The number of elements in a basis is called the <strong>dimension</strong> of <eq env="math">V</eq>.<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a>
 The most common, and prototypical, <eq env="math">n</eq>-dimensional complex vector space (and the space which we will be using most of the time) is the space of ordered <eq env="math">n</eq>-tuples of complex numbers, usually written as column vectors:
 <eq env="displaymath">
   |a\rangle
@@ -462,7 +463,7 @@ This is sufficient for all our purposes and we will avoid many mathematical subt
   \langle c_1u_1+c_2u_2|v\rangle = c_1^\star\langle u_1|v\rangle+c_2^\star\langle u_2|v\rangle
 </eq>
 for any complex constants <eq env="math">c_1</eq> and <eq env="math">c_2</eq>.</p>
-<p>To any physical system we associate<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a> a complex vector space with an inner product, known as a <strong>Hilbert space</strong> <eq env="math">\mathcal{H}</eq>.
+<p>To any physical system we associate<a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a> a complex vector space with an inner product, known as a <strong>Hilbert space</strong> <eq env="math">\mathcal{H}</eq>.
 The inner product between vectors <eq env="math">|u\rangle</eq> and <eq env="math">|v\rangle</eq> in <eq env="math">{\mathcal{H}}</eq> is written as <eq env="math">\langle u|v\rangle</eq>.</p>
 <div class="technical" title="Finite-dimensional functional analysis">
 <p>If <eq env="math">V</eq> is a vector space with an inner product <eq env="math">\langle-,-\rangle</eq>, then this gives us a <strong>norm</strong> on <eq env="math">V</eq> by defining <eq env="math">\|x\|=\sqrt{\langle x,x\rangle}</eq> and thus a <strong>metric</strong> by defining <eq env="math">d(x,y)=\|y-x\|</eq>.
@@ -517,7 +518,7 @@ A linear functional <eq env="math">\langle u|</eq> acting on a vector <eq env="m
 <div id="daggers" class="section level2 hasAnchor" number="1.4">
 <h2><span class="header-section-number">1.4</span> Daggers<a href="01-PreliminaresMatematicas.html#daggers" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>Although <eq env="math">\mathcal{H}</eq> and <eq env="math">\mathcal{H}^\star</eq> are not identical spaces — the former is inhabited by kets, and the latter by bras — they are closely related.
-There is a bijective map from one to the other given by <eq env="math">|v\rangle\leftrightarrow \langle v|</eq>, and denoted by a <strong>dagger</strong>:<a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a>
+There is a bijective map from one to the other given by <eq env="math">|v\rangle\leftrightarrow \langle v|</eq>, and denoted by a <strong>dagger</strong>:<a href="#fn10" class="footnote-ref" id="fnref10"><sup>10</sup></a>
 <eq env="displaymath">
   \begin{aligned}
     \langle v|
@@ -537,7 +538,7 @@ We usually omit the parentheses when it is obvious what the dagger operation app
   \end{aligned}
 </eq>
 Also, when applied twice, the dagger operation is the identity map.</p>
-<p>You might already be familiar with Hermitian conjugation under another name: the <strong>conjugate transpose</strong><a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> of an <eq env="math">(n\times m)</eq> matrix <eq env="math">A</eq> is an <eq env="math">(m\times n)</eq> matrix <eq env="math">A^\dagger</eq>, obtained by interchanging the rows and columns of <eq env="math">A</eq> and taking complex conjugates of each entry in <eq env="math">A</eq>, i.e. <eq env="math">A^\dagger_{ij}=A^\star_{ji}</eq>.
+<p>You might already be familiar with Hermitian conjugation under another name: the <strong>conjugate transpose</strong><a href="#fn11" class="footnote-ref" id="fnref11"><sup>11</sup></a> of an <eq env="math">(n\times m)</eq> matrix <eq env="math">A</eq> is an <eq env="math">(m\times n)</eq> matrix <eq env="math">A^\dagger</eq>, obtained by interchanging the rows and columns of <eq env="math">A</eq> and taking complex conjugates of each entry in <eq env="math">A</eq>, i.e. <eq env="math">A^\dagger_{ij}=A^\star_{ji}</eq>.
 In particular then,
 <eq env="displaymath">
   |v\rangle = \begin{bmatrix}v_1\\v_2\\\vdots\\v_n\end{bmatrix}
@@ -548,7 +549,7 @@ In particular then,
 <div id="geometry" class="section level2 hasAnchor" number="1.5">
 <h2><span class="header-section-number">1.5</span> Geometry<a href="01-PreliminaresMatematicas.html#geometry" class="anchor-section" aria-label="Anchor link to header"></a></h2>
 <p>The inner product brings geometry: the <strong>length</strong>, or <strong>norm</strong>, of <eq env="math">|v\rangle</eq> is given by <eq env="math">\|v\|=\sqrt{\langle v|v\rangle}</eq>, and we say that <eq env="math">|u\rangle</eq> and <eq env="math">|v\rangle</eq> are <strong>orthogonal</strong> if <eq env="math">\langle u|v\rangle=0</eq>.
-Any maximal set of pairwise orthogonal vectors of unit length<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a> forms an orthonormal basis, and so any vector can be expressed as a linear combination of the basis vectors:
+Any maximal set of pairwise orthogonal vectors of unit length<a href="#fn12" class="footnote-ref" id="fnref12"><sup>12</sup></a> forms an orthonormal basis, and so any vector can be expressed as a linear combination of the basis vectors:
 <eq env="displaymath">
   \begin{gathered}
     |v\rangle
@@ -621,7 +622,7 @@ and <eq env="math">\dagger</eq> turns <eq env="math">(n\times m)</eq> matrices i
 </ul>
 <p>In particular then, being unitary implies being normal, since if <eq env="math">A^\dagger=A^{-1}</eq> then <eq env="math">AA^\dagger=A^\dagger A</eq>, since both of these are equal to <eq env="math">\mathbf{1}</eq>.
 Note also that unitary and Hermitian operators must be operators, i.e. they are represented by an <eq env="math">(n\times n)</eq> matrix.</p>
-<p>Any <em>physically admissible</em> evolution of an isolated quantum system is represented by a unitary operator.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>
+<p>Any <em>physically admissible</em> evolution of an isolated quantum system is represented by a unitary operator.<a href="#fn13" class="footnote-ref" id="fnref13"><sup>13</sup></a>
 Note that unitary operators preserve the inner product: given a unitary operator <eq env="math">U</eq> and two kets <eq env="math">|a\rangle</eq> and <eq env="math">|b\rangle</eq>, and defining <eq env="math">|a'\rangle=U|a\rangle</eq> and <eq env="math">|b'\rangle=U|b\rangle</eq>, we have that
 <eq env="displaymath">
   \begin{gathered}
@@ -640,7 +641,7 @@ Preserving the inner product implies preserving the norm induced by this product
 </eq>
 for some <eq env="math">\lambda\in\mathbb{C}</eq> (which is called the corresponding <strong>eigenvalue</strong>).
 We call the pair <eq env="math">(\lambda,|v\rangle)</eq> an <strong>eigenpair</strong>, and we call the set of eigenvalues the <strong>spectrum</strong> of <eq env="math">A</eq>, denoted by <eq env="math">\sigma(A)</eq>.
-It is a surprising (but incredibly useful) fact that every operator has at least one eigenpair.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
+It is a surprising (but incredibly useful) fact that every operator has at least one eigenpair.<a href="#fn14" class="footnote-ref" id="fnref14"><sup>14</sup></a>
 Geometrically, an eigenvector of an operator <eq env="math">A</eq> is a vector upon which <eq env="math">A</eq> simply acts by “stretching”.</p>
 <p>Rewriting the defining property of an eigenpair <eq env="math">(\lambda,|v\rangle)</eq>, we see that
 <eq env="displaymath">
@@ -672,7 +673,7 @@ In particular, if each <eq env="math">|e_i\rangle</eq> is mapped to <eq env="mat
 <eq env="displaymath">
   \sum_i|e_i\rangle\langle e_i|=\mathbf{1}.
 </eq>
-This relation holds for <em>any</em> orthonormal basis, and it is one of the most ubiquitous and useful formulas in quantum theory, known as <strong>completeness</strong>.<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a>
+This relation holds for <em>any</em> orthonormal basis, and it is one of the most ubiquitous and useful formulas in quantum theory, known as <strong>completeness</strong>.<a href="#fn15" class="footnote-ref" id="fnref15"><sup>15</sup></a>
 For example, for any vector <eq env="math">|v\rangle</eq> and for any orthonormal basis <eq env="math">\{|e_i\rangle\}</eq>, we have
 <eq env="displaymath">
   \begin{aligned}
@@ -706,7 +707,7 @@ Equivalently, for any square matrix <eq env="math">A</eq>, the trace of <eq env=
   \operatorname{tr}A = \sum_k \langle e_k|A|e_k\rangle = \sum_k A_{kk}.
 </eq>
 In fact, the trace of <eq env="math">A</eq> is equal to the sum of the eigenvalues of <eq env="math">A</eq>, even in the case where <eq env="math">A</eq> is not diagonalisable.</p>
-<p>You can show, using this definition or otherwise, that the trace is cyclic<a href="#fn17" class="footnote-ref" id="fnref17"><sup>17</sup></a> (<eq env="math">\operatorname{tr}(AB) = \operatorname{tr}(BA)</eq>) and linear (<eq env="math">\operatorname{tr}(\alpha A+\beta B) = \alpha\operatorname{tr}(A)+\beta\operatorname{tr}(B)</eq>, where <eq env="math">A</eq> and <eq env="math">B</eq> are square matrices and <eq env="math">\alpha</eq> and <eq env="math">\beta</eq> complex numbers).</p>
+<p>You can show, using this definition or otherwise, that the trace is cyclic<a href="#fn16" class="footnote-ref" id="fnref16"><sup>16</sup></a> (<eq env="math">\operatorname{tr}(AB) = \operatorname{tr}(BA)</eq>) and linear (<eq env="math">\operatorname{tr}(\alpha A+\beta B) = \alpha\operatorname{tr}(A)+\beta\operatorname{tr}(B)</eq>, where <eq env="math">A</eq> and <eq env="math">B</eq> are square matrices and <eq env="math">\alpha</eq> and <eq env="math">\beta</eq> complex numbers).</p>
 <p>To recover the first definition from the second, we argue as follows:
 <eq env="displaymath">
   \begin{aligned}
@@ -750,22 +751,22 @@ In all of these, <eq env="math">|a\rangle,|b\rangle\in\mathcal{H}</eq> are kets,
 </div>
 <div class="footnotes">
 <hr />
-<ol start="3">
-<li id="fn3"><p>To explain why we care so much about polynomials would be the subject of a whole nother book, but one important reason (of the <em>many</em>!), for both analysts and geometers alike, is the <a href="https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem"><strong>Weierstrass Approximation Theorem</strong></a>.<a href="01-PreliminaresMatematicas.html#fnref3" class="footnote-back">↩︎</a></p></li>
-<li id="fn4"><p>The more common notation in mathematics is <eq env="math">\bar{z}</eq> instead of <eq env="math">z^\star</eq>, but physicists tend to like the latter.<a href="01-PreliminaresMatematicas.html#fnref4" class="footnote-back">↩︎</a></p></li>
-<li id="fn5"><p><strong>Exercise.</strong> Prove this!<a href="01-PreliminaresMatematicas.html#fnref5" class="footnote-back">↩︎</a></p></li>
-<li id="fn6"><p>If you don’t know about Taylor series, then feel free to just skim this part, but make sure to read the punchline!<a href="01-PreliminaresMatematicas.html#fnref6" class="footnote-back">↩︎</a></p></li>
-<li id="fn7"><p>It is very important to point out that this “proof” is not rigorous or formal — you need to be very <em>very</em> careful when rearranging infinite sums! However, this proof <em>can be made rigorous</em> by using some real analysis.<a href="01-PreliminaresMatematicas.html#fnref7" class="footnote-back">↩︎</a></p></li>
-<li id="fn8"><p>Note that we have not really given you enough information in this section to be able to solve all these exercises, but that is intentional! Sometimes we like to ask questions and not answer them, with the hope that you will enjoy getting to do some research by yourself.<a href="01-PreliminaresMatematicas.html#fnref8" class="footnote-back">↩︎</a></p></li>
-<li id="fn9"><p>Showing that this definition is independent of the basis that we choose is a “fun” linear algebra exercise.<a href="01-PreliminaresMatematicas.html#fnref9" class="footnote-back">↩︎</a></p></li>
-<li id="fn10"><p>The question of <em>how</em> exactly we construct this associated space is a subtle one in the case of arbitrary physical systems, but we shall see that this is relatively straightforward when working with the types of systems that we consider in this book.<a href="01-PreliminaresMatematicas.html#fnref10" class="footnote-back">↩︎</a></p></li>
-<li id="fn11"><p>“Is this a <eq env="math">\dagger</eq> which I see before me…”<a href="01-PreliminaresMatematicas.html#fnref11" class="footnote-back">↩︎</a></p></li>
-<li id="fn12"><p>In mathematics texts this operation is often denoted by <eq env="math">{}^\star</eq> rather than <eq env="math">{}^\dagger</eq>, but we reserve the former for complex conjugation <em>without</em> matrix transposition. Note, however, that scalars can be thought of as <eq env="math">(1\times1)</eq> matrices, and in this special case we have that <eq env="math">\dagger=\star</eq>.<a href="01-PreliminaresMatematicas.html#fnref12" class="footnote-back">↩︎</a></p></li>
-<li id="fn13"><p>That is, consider sets of vectors <eq env="math">|e_i\rangle</eq> such that <eq env="math">\langle e_i|e_j\rangle=\delta_{ij}</eq> (where the <strong>Kronecker delta</strong> <eq env="math">\delta_{ij}</eq> is <eq env="math">0</eq> if <eq env="math">i\neq j</eq>, and <eq env="math">1</eq> if <eq env="math">i=j</eq>.), and then pick any of the largest such sets (which must exist, since we assume our vector spaces to be finite dimensional).<a href="01-PreliminaresMatematicas.html#fnref13" class="footnote-back">↩︎</a></p></li>
-<li id="fn14"><p>This is an <em>axiom</em>, justified by experimental evidence, and also by some sort of mathematical intuition. So, in this book, we take this as a <em>fact</em> that we do not question. It is, however, very interesting to question it: <em>why should we assume this to be true?</em><a href="01-PreliminaresMatematicas.html#fnref14" class="footnote-back">↩︎</a></p></li>
-<li id="fn15"><p>You can prove this for an <eq env="math">(n\times n)</eq> matrix <eq env="math">A</eq> by considering the set <eq env="math">\{|v\rangle,A|v\rangle,A^2|v\rangle,\ldots,A^n|v\rangle\}</eq> of vectors in <eq env="math">\mathbb{C}^n</eq>. Since this has <eq env="math">n+1</eq> elements, it must be linearly <em>dependent</em>, and so (after some lengthy algebra) we can construct an eigenpair.<a href="01-PreliminaresMatematicas.html#fnref15" class="footnote-back">↩︎</a></p></li>
-<li id="fn16"><p>Not to be confused with “completeness” in the sense of Hilbert spaces.<a href="01-PreliminaresMatematicas.html#fnref16" class="footnote-back">↩︎</a></p></li>
-<li id="fn17"><p>Note that “cyclic” does not mean the same thing as “permutation invariant”! It is <em>not</em> true in general that <eq env="math">\operatorname{tr}(ABC)=\operatorname{tr}(CBA)</eq>, but only that <eq env="math">\operatorname{tr}(ABC)=\operatorname{tr}(BCA)=\operatorname{tr}(CAB)</eq>, i.e. we can only <em>cyclically</em> permute the operators.<a href="01-PreliminaresMatematicas.html#fnref17" class="footnote-back">↩︎</a></p></li>
+<ol start="2">
+<li id="fn2"><p>To explain why we care so much about polynomials would be the subject of a whole nother book, but one important reason (of the <em>many</em>!), for both analysts and geometers alike, is the <a href="https://en.wikipedia.org/wiki/Stone%E2%80%93Weierstrass_theorem"><strong>Weierstrass Approximation Theorem</strong></a>.<a href="01-PreliminaresMatematicas.html#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>The more common notation in mathematics is <eq env="math">\bar{z}</eq> instead of <eq env="math">z^\star</eq>, but physicists tend to like the latter.<a href="01-PreliminaresMatematicas.html#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p><strong>Exercise.</strong> Prove this!<a href="01-PreliminaresMatematicas.html#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>If you don’t know about Taylor series, then feel free to just skim this part, but make sure to read the punchline!<a href="01-PreliminaresMatematicas.html#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>It is very important to point out that this “proof” is not rigorous or formal — you need to be very <em>very</em> careful when rearranging infinite sums! However, this proof <em>can be made rigorous</em> by using some real analysis.<a href="01-PreliminaresMatematicas.html#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Note that we have not really given you enough information in this section to be able to solve all these exercises, but that is intentional! Sometimes we like to ask questions and not answer them, with the hope that you will enjoy getting to do some research by yourself.<a href="01-PreliminaresMatematicas.html#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Showing that this definition is independent of the basis that we choose is a “fun” linear algebra exercise.<a href="01-PreliminaresMatematicas.html#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>The question of <em>how</em> exactly we construct this associated space is a subtle one in the case of arbitrary physical systems, but we shall see that this is relatively straightforward when working with the types of systems that we consider in this book.<a href="01-PreliminaresMatematicas.html#fnref9" class="footnote-back">↩︎</a></p></li>
+<li id="fn10"><p>“Is this a <eq env="math">\dagger</eq> which I see before me…”<a href="01-PreliminaresMatematicas.html#fnref10" class="footnote-back">↩︎</a></p></li>
+<li id="fn11"><p>In mathematics texts this operation is often denoted by <eq env="math">{}^\star</eq> rather than <eq env="math">{}^\dagger</eq>, but we reserve the former for complex conjugation <em>without</em> matrix transposition. Note, however, that scalars can be thought of as <eq env="math">(1\times1)</eq> matrices, and in this special case we have that <eq env="math">\dagger=\star</eq>.<a href="01-PreliminaresMatematicas.html#fnref11" class="footnote-back">↩︎</a></p></li>
+<li id="fn12"><p>That is, consider sets of vectors <eq env="math">|e_i\rangle</eq> such that <eq env="math">\langle e_i|e_j\rangle=\delta_{ij}</eq> (where the <strong>Kronecker delta</strong> <eq env="math">\delta_{ij}</eq> is <eq env="math">0</eq> if <eq env="math">i\neq j</eq>, and <eq env="math">1</eq> if <eq env="math">i=j</eq>.), and then pick any of the largest such sets (which must exist, since we assume our vector spaces to be finite dimensional).<a href="01-PreliminaresMatematicas.html#fnref12" class="footnote-back">↩︎</a></p></li>
+<li id="fn13"><p>This is an <em>axiom</em>, justified by experimental evidence, and also by some sort of mathematical intuition. So, in this book, we take this as a <em>fact</em> that we do not question. It is, however, very interesting to question it: <em>why should we assume this to be true?</em><a href="01-PreliminaresMatematicas.html#fnref13" class="footnote-back">↩︎</a></p></li>
+<li id="fn14"><p>You can prove this for an <eq env="math">(n\times n)</eq> matrix <eq env="math">A</eq> by considering the set <eq env="math">\{|v\rangle,A|v\rangle,A^2|v\rangle,\ldots,A^n|v\rangle\}</eq> of vectors in <eq env="math">\mathbb{C}^n</eq>. Since this has <eq env="math">n+1</eq> elements, it must be linearly <em>dependent</em>, and so (after some lengthy algebra) we can construct an eigenpair.<a href="01-PreliminaresMatematicas.html#fnref14" class="footnote-back">↩︎</a></p></li>
+<li id="fn15"><p>Not to be confused with “completeness” in the sense of Hilbert spaces.<a href="01-PreliminaresMatematicas.html#fnref15" class="footnote-back">↩︎</a></p></li>
+<li id="fn16"><p>Note that “cyclic” does not mean the same thing as “permutation invariant”! It is <em>not</em> true in general that <eq env="math">\operatorname{tr}(ABC)=\operatorname{tr}(CBA)</eq>, but only that <eq env="math">\operatorname{tr}(ABC)=\operatorname{tr}(BCA)=\operatorname{tr}(CAB)</eq>, i.e. we can only <em>cyclically</em> permute the operators.<a href="01-PreliminaresMatematicas.html#fnref16" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 <!-- KaTeX for maths rendering -->
